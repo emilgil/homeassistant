@@ -1,0 +1,252 @@
+media_player.vardagsrummet:
+  name:
+  platform: cast
+  unique_id: 602724f8-c569-62aa-354e-80f90faf46c4
+media_player.tv:
+  name:
+  platform: cast
+  unique_id: 6f693d76-a8f4-4c9f-065b-cb42c409c413
+media_player.koket:
+  name:
+  platform: cast
+  unique_id: 957d7654-67e4-6c45-43d8-91667c0ce02d
+media_player.hemgrupp:
+  name:
+  platform: cast
+  unique_id: 793c0e22-0e2b-4608-8d97-36cfe438da78
+sensor.humidity_158d0001d8467a:
+  name:
+  platform: xiaomi_aqara
+  unique_id: humidity158d0001d8467a
+sensor.humidity_158d0001d84697:
+  name:
+  platform: xiaomi_aqara
+  unique_id: humidity158d0001d84697
+sensor.pressure_158d0001b92306:
+  name:
+  platform: xiaomi_aqara
+  unique_id: pressure158d0001b92306
+sensor.temperature_158d0001b92306:
+  name:
+  platform: xiaomi_aqara
+  unique_id: temperature158d0001b92306
+sensor.humidity_158d0001b92306:
+  name:
+  platform: xiaomi_aqara
+  unique_id: humidity158d0001b92306
+sensor.pressure_158d0001b9521f:
+  name:
+  platform: xiaomi_aqara
+  unique_id: pressure158d0001b9521f
+sensor.humidity_158d0001b9521f:
+  name:
+  platform: xiaomi_aqara
+  unique_id: humidity158d0001b9521f
+sensor.temperature_158d0001d84697:
+  name:
+  platform: xiaomi_aqara
+  unique_id: temperature158d0001d84697
+sensor.illumination_34ce00889f9e:
+  name:
+  platform: xiaomi_aqara
+  unique_id: illumination34ce00889f9e
+sensor.temperature_158d0001b9521f:
+  name:
+  platform: xiaomi_aqara
+  unique_id: temperature158d0001b9521f
+sensor.temperature_158d0001d8467a:
+  name:
+  platform: xiaomi_aqara
+  unique_id: temperature158d0001d8467a
+binary_sensor.door_window_sensor_158d000171eabb:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d000171eabb
+binary_sensor.switch_158d00019ccfde:
+  name:
+  platform: xiaomi_aqara
+  unique_id: status158d00019ccfde
+light.gateway_light_34ce00889f9e:
+  name:
+  platform: xiaomi_aqara
+  unique_id: rgb34ce00889f9e
+zwave.zwaveme_zme_uzb1_usb_stick:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.qubino_zmnhcdx_flush_shutter:
+  name:
+  platform: zwave
+  unique_id: node-9
+zwave.telldus_tzwp100_plugin_switch:
+  name:
+  platform: zwave
+  unique_id: node-13
+zwave.telldus_tzwp100_plugin_switch_2:
+  name:
+  platform: zwave
+  unique_id: node-14
+zwave.telldus_tzwp100_plugin_switch_3:
+  name:
+  platform: zwave
+  unique_id: node-15
+cover.qubino_zmnhcdx_flush_shutter_level:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193739777
+cover.qubino_zmnhcdx_flush_shutter_switch:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+switch.qubino_zmnhcdx_flush_shutter_switch:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+sensor.qubino_zmnhcdx_flush_shutter_power:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936514
+sensor.qubino_zmnhcdx_flush_shutter_energy:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936386
+switch.telldus_tzwp100_plugin_switch_switch:
+  name:
+  platform: zwave
+  unique_id: 13-72057594260832256
+switch.telldus_tzwp100_plugin_switch_switch_2:
+  name:
+  platform: zwave
+  unique_id: 14-72057594277609472
+switch.telldus_tzwp100_plugin_switch_switch_3:
+  name:
+  platform: zwave
+  unique_id: 15-72057594294386688
+sensor.qubino_zmnhcdx_flush_shutter_previous_reading:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936402
+zwave.fibaro_system_fgk10x_door_opening_sensor:
+  name:
+  platform: zwave
+  unique_id: node-4
+sensor.fibaro_system_fgk10x_door_opening_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082529
+sensor.fibaro_system_fgk10x_door_opening_sensor_access_control:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082641
+sensor.fibaro_system_fgk10x_door_opening_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082657
+sensor.fibaro_system_fgk10x_door_opening_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111787009
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082497
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082513
+binary_sensor.fibaro_system_fgk10x_door_opening_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 4-72057594110017536
+zwave.fibaro_system_fgk10x_door_opening_sensor_2:
+  name:
+  platform: zwave
+  unique_id: node-3
+sensor.fibaro_system_fgk10x_door_opening_sensor_sourcenodeid_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305313
+sensor.fibaro_system_fgk10x_door_opening_sensor_access_control_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305425
+sensor.fibaro_system_fgk10x_door_opening_sensor_burglar_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305441
+sensor.fibaro_system_fgk10x_door_opening_sensor_general_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594095009793
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_type_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_level_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305297
+binary_sensor.fibaro_system_fgk10x_door_opening_sensor_sensor_2:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093240320
+zwave.fibaro_system_fgk10x_door_opening_sensor_3:
+  name:
+  platform: zwave
+  unique_id: node-5
+sensor.fibaro_system_fgk10x_door_opening_sensor_sourcenodeid_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859745
+sensor.fibaro_system_fgk10x_door_opening_sensor_access_control_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859857
+sensor.fibaro_system_fgk10x_door_opening_sensor_burglar_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859873
+sensor.fibaro_system_fgk10x_door_opening_sensor_general_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594128564225
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_type_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859713
+sensor.fibaro_system_fgk10x_door_opening_sensor_alarm_level_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594127859729
+binary_sensor.fibaro_system_fgk10x_door_opening_sensor_sensor_3:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126794752
+zwave.neo_coolcam_battery_powered_pir_sensor:
+  name:
+  platform: zwave
+  unique_id: node-8
+sensor.neo_coolcam_battery_powered_pir_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 8-72057594177142834
+sensor.neo_coolcam_battery_powered_pir_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191393
+sensor.neo_coolcam_battery_powered_pir_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191521
+binary_sensor.neo_coolcam_battery_powered_pir_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 8-72057594177126400
+sensor.neo_coolcam_battery_powered_pir_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191361
+sensor.neo_coolcam_battery_powered_pir_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 8-72057594178191377
