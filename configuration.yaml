@@ -38,7 +38,7 @@ updater:
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -59,6 +59,7 @@ sensor:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+#sensor: !include sensors/server.yaml
 
 # Hardware
 zwave:
@@ -67,7 +68,7 @@ zwave:
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
-#    - mac: 34CE00889F9E
+    - mac: '34:CE:00:88:9F:9E'
     - key: dbbw8xi6rkdv2ybd
 
 sensor:
@@ -75,3 +76,23 @@ sensor:
     host: 192.168.1.21
     disks:
       - /dev/sda
+      - /dev/sdb
+      - /dev/sdc
+      - /dev/sdd
+      - /dev/sde
+
+sensor:
+  - platform: nut
+    name: eaton3s
+    host: 192.168.1.21
+    port: 3493
+    alias: eaton3s
+    username: !secret nut-user
+    password: !secret nut-password
+    resources:
+      - ups.load
+      - ups.status
+#      - ups.status.display
+      - battery.runtime
+      - battery.charge
+#      - output.voltage

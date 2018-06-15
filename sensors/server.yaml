@@ -1,0 +1,24 @@
+sensor:
+  - platform: hddtemp
+    host: 192.168.1.21
+    disks:
+      - /dev/sda
+
+sensor:
+  - platform: nut
+    name: UPS Name
+    host: 192.168.1.21
+    port: 3493
+    alias: ups_name
+    username: upsmon
+    password: hkg563
+    resources:
+      - ups.load
+      - ups.realpower.nominal
+      - input.voltage
+      - battery.runtime
+
+sensor:
+  - platform: nut
+    resources:
+      - ups.status.display
