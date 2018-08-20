@@ -1,0 +1,22 @@
+  - platform: influxdb
+    host: 192.168.1.21
+    username: !secret hass_username
+    password: !secret hass_password
+    queries:
+      - name: "12h Outdoor median"
+        database: homeassistant
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        field: value #select
+        group_function: median
+        measurement: '"°C"' #from
+        where: '"entity_id" = ''temperature_outdoor'' and time > now() - 12h' #where
+
+      - name: "12h Outdoor mean"
+        database: homeassistant
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        field: value #select
+        group_function: mean
+        measurement: '"°C"' #from
+        where: '"entity_id" = ''temperature_outdoor'' and time > now() - 12h' #where

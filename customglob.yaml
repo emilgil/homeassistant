@@ -1,0 +1,10 @@
+"sensor.humidity*":
+  icon: mdi:water-percent
+"sensor.vinkylen*":
+  icon: mdi:wine-bottle
+"sensor.neo*":
+  hidden: true
+"sensor.qubino*":
+  hidden: true
+"zwave*":
+  hidden: true

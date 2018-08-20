@@ -1,0 +1,22 @@
+  weather_now:
+    name: Vädret nu
+    icon: mdi:weather-cloudy
+    entities:
+      - sensor.yr_today_temperature
+      - sensor.yr_today_pressure
+      - sensor.yr_today_cloudiness
+      - sensor.yr_today_precipitation
+      - sensor.yr_today_wind_speed
+      - sensor.yr_today_wind_direction
+
+
+  weather_tomorrow:
+    name: Vädret imorgon
+    icon: mdi:weather-cloudy
+    entities:
+      - sensor.yr_tomorrow_temperature
+      - sensor.yr_tomorrow_pressure
+      - sensor.yr_tomorrow_cloudiness
+      - sensor.yr_tomorrow_precipitation
+      - sensor.yr_tomorrow_wind_speed
+      - sensor.yr_tomorrow_wind_direction

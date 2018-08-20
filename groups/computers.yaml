@@ -1,0 +1,13 @@
+  computers:
+    name: Datorer
+    icon: mdi:desktop
+    entities:
+      - sensor.eaton3s_battery_charge
+      - sensor.eaton3s_load
+      - sensor.eaton3s_status
+      - sensor.pihole_ads_blocked_today
+      - sensor.hd_temperature_devsda
+      - sensor.hd_temperature_devsdb
+      - sensor.hd_temperature_devsdc
+      - sensor.hd_temperature_devsdd
+      - sensor.hd_temperature_devsde

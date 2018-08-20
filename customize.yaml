@@ -1,0 +1,3 @@
+   script.radio_on:
+    friendly_name: Start Playing
+    icon: mdi:play

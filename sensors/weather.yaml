@@ -1,0 +1,22 @@
+  - platform: yr
+    name: yr_today
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - windDirection
+      - cloudiness
+      - pressure
+
+  - platform: yr
+    name: yr_tomorrow
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - windDirection
+      - cloudiness
+      - pressure

@@ -1,0 +1,13 @@
+  switches:
+    name: 'Belysning'
+    entities:
+    - switch.corner
+    - switch.sofa
+    - switch.tv
+
+  morning:
+    name: 'Morgonbelysning'
+    view: no
+    entities:
+      - switch.corner
+      - switch.sofa

@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 57.5667
-  longitude: 12.0833
+  latitude: !secret hass-lat
+  longitude: !secret hass-long
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -11,7 +11,11 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
   # Customization file
+  whitelist_external_dirs:
+    - '/config'
   customize: !include customize.yaml
+  customize_glob: !include customglob.yaml
+#  packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
@@ -23,7 +27,13 @@ http:
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+#  base_url: http://gildebrandhome.duckdns.org/
+  base_url: http://192.168.1.21:8123
+#    example.duckdns.org:8123
+  trusted_networks:
+    - 192.168.1.0/24
+    - 192.168.255.0/24
+    - 127.0.0.1
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -46,53 +56,127 @@ history:
 # View all events in a logbook
 logbook:
 
+logger:
+#  default: debug
+  default: error
+  logs:
+    homeassistant.components.media_player: debug
+    homeassistant.components.script: debug
+    homeassistant.components.switch: debug
+    homeassistant.components.automation: debug
+
 # Enables a map showing the location of tracked devices
 map:
 
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: yr
+recorder:
+  purge_keep_days: 5
+  purge_interval: 1
+  exclude:
+    domains:
+      - automation
+#      - zwave
+      - device_tracker
+      - media_player
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-#sensor: !include sensors/server.yaml
+#group: !include groups.yaml
+group: !include_dir_merge_named groups/
 
-# Hardware
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
+
+#script: !include scripts.yaml
+script: !include_dir_merge_named scripts
+python_script:
+input_select: !include_dir_merge_named input_select
+sensor: !include_dir_merge_list sensors/
+
+influxdb:
+  host: 192.168.1.21
+  port: 8086
+  username: myggan
+  password: hubert
+  database: homeassistant
+  include:
+    domains:
+      - sensor
+  exclude:
+    entities:
+      - sensor.pihole_ads_blocked_today
+      - sensor.eaton3s_status_data
+
+#Hardware
 zwave:
   usb_path: /dev/ttyACM0
+
 
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
-    - mac: '34:CE:00:88:9F:9E'
-    - key: dbbw8xi6rkdv2ybd
+    - host: 192.168.1.46
+      mac: !secret xiaomi-mac
+      key: !secret xiaomi-key
 
-sensor:
-  - platform: hddtemp
-    host: 192.168.1.21
-    disks:
-      - /dev/sda
-      - /dev/sdb
-      - /dev/sdc
-      - /dev/sdd
-      - /dev/sde
 
-sensor:
-  - platform: nut
-    name: eaton3s
-    host: 192.168.1.21
-    port: 3493
-    alias: eaton3s
-    username: !secret nut-user
-    password: !secret nut-password
-    resources:
-      - ups.load
-      - ups.status
-#      - ups.status.display
-      - battery.runtime
-      - battery.charge
-#      - output.voltage
+switch:
+  platform: hadockermon
+  host: 192.168.1.21
+  port: 8126
+  stats: true
+  prefix: docker_
+  exclude:
+    - ha-dockermon
+
+# -------------------------------------------------------------------
+# *** NOTIFICATIONS ***
+notify:
+  - platform: pushbullet
+    name: pushbullet
+    api_key: !secret pushbullet
+
+alert:
+  kitchen_window:
+    name: 'Köksfönstret öppet'
+    entity_id: binary_sensor.koksfonster_sensor
+    state: 'on'
+    repeat:
+      - 15
+      - 30
+    skip_first: true
+    notifiers:
+      - pushbullet
+
+deconz:
+  host: 127.0.0.1 #192.168.1.159
+  api_key: C897371601
+  port: 8089
+
+mqtt:
+  broker: 192.168.1.21
+  port: 1883
+  client_id: server
+  username: !secret mqtt-user
+  password: !secret mqtt-password
+
+cast:
+  media_player:
+  - host: 192.168.1.152 #Köket 957d765467e46c4543d891667c0ce02
+  - host: 192.168.1.66  #Stereo 602724f8c56962aa354e80f90faf46c4
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_secret
+#     aliases:
+#       957d765467e46c4543d891667c0ce02d: 'Kitchen'
+#       602724f8c56962aa354e80f90faf46c4: 'Livingroom'
+
+# 2018-07-31 22:35:45 DEBUG (SyncWorker_0) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.152', port=8009, uuid='957d7654-67e4-6c45-43d8-91667c0ce02d', model_name='Chromecast Audio', friendly_name='Köket')
+# 2018-07-31 22:35:45 DEBUG (SyncWorker_9) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
+# 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.kitchen, old_state=None, new_state=<state media_player.kitchen=unavailable; friendly_name=Chromecast kök, supported_features=21437 @ 2018-07-31T22:35:45.906224+02:00>>
+# 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.152', port=8009, uuid='957d7654-67e4-6c45-43d8-91667c0ce02d', model_name='Chromecast Audio', friendly_name='Köket')
+# 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.livingroom, old_state=None, new_state=<state media_player.livingroom=unavailable; friendly_name=Chromecast stereo, supported_features=21437 @ 2018-07-31T22:35:45.916529+02:00>>
+# 2018-07-31 22:35:45 INFO (SyncWorker_1) [pychromecast] Querying device status
+# 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')

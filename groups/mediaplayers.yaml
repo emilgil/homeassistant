@@ -1,0 +1,7 @@
+  media_players:
+    name: Mediaspelare
+    icon: mdi:spotify
+    entities:
+      - media_player.livingroom
+      - media_player.kitchen
+      - media_player.spotify
