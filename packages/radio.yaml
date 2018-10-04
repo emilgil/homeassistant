@@ -1,0 +1,81 @@
+customize:
+  script.radio538:
+    friendly_name: Play
+    icon: mdi:play
+
+group:
+  radio:
+    name: Webradio
+    icon: mdi:radio
+    entities:
+      - input_select.radio_stations
+      - input_select.chromecast_units
+      - script.radio538
+
+input_select:
+  radio_stations:
+    name: 'Välj radiostation'
+    options:
+      - 'SR P1'
+      - 'SR P3'
+      - 'BBC World'
+      - 'BBC World PLS'
+      - 'BBC World long'
+      - 'Bandit'
+    initial: 'SR P1'
+    icon: mdi:radio
+  chromecast_units:
+    name: 'Select Speakers:'
+    options:
+      - 'Vardagsrummet'
+      - 'Köket'
+      - 'Hemgrupp'
+    initial: 'Köket'
+    icon: mdi:speaker-wireless
+
+
+script:
+  radio538:
+    alias: Cast Radio
+    sequence:
+      - service: notify.pushbullet
+        data:
+          message: "Script radio538 started"
+      - service: media_player.volume_set
+        data_template:
+          entity_id: >
+            '{% if is_state("input_select.chromecast_radio", "Vardagsrummet") %} media_player.livingroom
+            {% elif is_state("input_select.chromecast_radio", "Köket") %} media_player.kitchen_speaker
+            {% endif %}'
+          volume_level: '0.50'
+      - service: notify.pushbullet
+        data:
+          message: "Volume set"
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.kitchen_speaker
+          media_content_id: 'http://sverigesradio.se/topsy/direkt/132-hi.mp3'
+          media_content_type: 'audio/mp4'
+      - service: notify.pushbullet
+        data:
+          message: "Player set"
+
+        # data_template:
+        #   entity_id: >
+        #     '{% if is_state("input_select.chromecast_radio", "Koket") %} media_player.kitchen_speaker
+        #     {% elif is_state("input_select.chromecast_radio", "Vardagsrummet") %} media_player.livingroom
+        #     {% endif %}'
+        #   media_content_id: >
+        #     '{% if is_state("input_select.radio_station", "SR P1") %} http://sverigesradio.se/topsy/direkt/132-hi.mp3
+        #     {% elif is_state("input_select.radio_station", "SR P3") %} http://sverigesradio.se/topsy/direkt/164-hi.mp3
+        #     {% elif is_state("input_select.radio_station", "BBC World") %} http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/llnw/bbc_world_service.m3u8
+        #     {% elif is_state("input_select.radio_station", "BBC World PLS") %} http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/dash/nonuk/dash_low/llnw/bbc_world_service.mpd
+        #     {% elif is_state("input_select.radio_station", "Bandit") %} http://91.221.151.155/listen.mp3
+        #     {% endif %}'
+        #   media_content_type: >
+        #     '{% if is_state("input_select.radio_station", "SR P1") %} ''audio/mp4''
+        #     {% elif is_state("input_select.radio_station", "SR P3") %} ''audio/mp4''
+        #     {% elif is_state("input_select.radio_station", "BBC World") %} ''application/x-mpegurl''
+        #     {% elif is_state("input_select.radio_station", "BBC World PLS") %} ''application/x-mpegurl''
+        #     {% elif is_state("input_select.radio_station", "Bandit") %} ''audio/mp4''
+        #     {% endif %}'

@@ -1,0 +1,18 @@
+  road_temp:
+    name: Trafikverket
+    icon: mdi:car
+    entities:
+      - sensor.trafikverket_sandsjobacka_road_temperature
+      - sensor.trafikverket_kungsbacka_road_temperature
+      - sensor.trafikverket_torpa_road_temperature
+      - sensor.trafikverket_stravalla_road_temperature
+      - sensor.trafikverket_medelvarde
+      - sensor.trafikverket_minimum
+  air_temp:
+    name: Trafikverket
+    icon: mdi:car
+    entities:
+      - sensor.trafikverket_sandsjobacka_air_temperature
+      - sensor.trafikverket_kungsbacka_air_temperature
+      - sensor.trafikverket_torpa_air_temperature
+      - sensor.trafikverket_stravalla_air_temperature

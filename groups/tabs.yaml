@@ -1,5 +1,6 @@
   default_view:
     view: yes
+    name: Default
     icon: mdi:home
     entities:
       - group.indoor_climate
@@ -8,38 +9,22 @@
       - group.weather_tomorrow
       - group.media_players
       - group.switches
+      - group.road_temp
+      - group.air_temp
 
-  computers:
+  computer_tab:
+    name: Computers
     view: yes
-    icon: mdi:computer
+    icon: mdi:docker
     entities:
       - group.docker_containers
       - group.computers
+      - group.network
 
-  automations:
+  automation_tab:
+    name: Automations
     view: yes
     icon: mdi:wrench
     entities:
       - group.automations
-
-  docker_containers:
-    control: hidden
-    icon: mdi:docker
-    entities:
-     - switch.docker_duckdns
-     - switch.docker_glances
-     - switch.docker_grafana
-     - switch.docker_hddtemp
-     - switch.docker_homeassistant
-     - switch.docker_influxdb
-     - switch.docker_kodi
-     - switch.docker_mariadb_adminer_1
-     - switch.docker_mariadb_db_1
-     - switch.docker_mosquitto
-     - switch.docker_openvpn
-     - switch.docker_pihole
-     - switch.docker_portainer
-     - switch.docker_telegraf
-     - switch.docker_unifi
-     - switch.docker_watchtower
-     - switch.docker_webnut
+      - group.radio

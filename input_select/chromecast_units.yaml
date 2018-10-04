@@ -1,8 +1,0 @@
-chromecast_units:
-  name: 'Select Speakers:'
-  options:
-    - Vardagsrummet
-    - Koket
-    - Hemgrupp
-  initial: Koket
-  icon: mdi:speaker-wireless

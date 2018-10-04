@@ -1,0 +1,24 @@
+  - alias: "Temperatur"
+    initial_state: true
+    trigger:
+      - platform: time
+        at: '05:15:00'
+      - platform: mqtt
+        topic: home-assistant/temp
+        #payload: request
+    action:
+      service: notify.pushbullet
+      data:
+        title: "Utomhustemperatur"
+        message: "Current: {{states.sensor.temperature_outdoor.state_with_unit}}, 12h min/med {{states.sensor['12h_outdoor_min'].state_with_unit}}/{{states.sensor['12h_outdoor_median'].state_with_unit}}"
+
+  - alias: "Vägtemperatur"
+    initial_state: true
+    trigger:
+      platform: time
+      at: '05:45:00'
+    action:
+      service: notify.pushbullet
+      data:
+        title: "Vägtemperatur"
+        message: "Current: {{states.sensor.temperature_outdoor.state_with_unit}}, 12h median {{states.sensor['12h_outdoor_median'].state_with_unit}}"

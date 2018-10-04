@@ -11,3 +11,9 @@
       - sensor.hd_temperature_devsdc
       - sensor.hd_temperature_devsdd
       - sensor.hd_temperature_devsde
+
+  # network:
+  #   name: Nätverk
+  #   icon: mdi:network
+  #   entities:
+  #     - sensor.unifi

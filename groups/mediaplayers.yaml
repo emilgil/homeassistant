@@ -3,5 +3,5 @@
     icon: mdi:spotify
     entities:
       - media_player.livingroom
-      - media_player.kitchen
+      - media_player.kitchen_speaker
       - media_player.spotify

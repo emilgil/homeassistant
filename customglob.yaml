@@ -8,3 +8,5 @@
   hidden: true
 "zwave*":
   hidden: true
+"sensor.fibaro*":
+  hidden: true

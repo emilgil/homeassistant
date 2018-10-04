@@ -1,0 +1,47 @@
+  - platform: trafikverket_weatherstation
+    name: 'Trafikverket Sandsjöbacka'
+    api_key: 474653c56dd942088ffa462809d350c6
+    station: Sandsjöbacka
+    monitored_conditions:
+      - air_temp
+      - road_temp
+
+  - platform: trafikverket_weatherstation
+    name: 'Trafikverket Kungsbacka'
+    api_key: 474653c56dd942088ffa462809d350c6
+    station: Kungsbacka
+    monitored_conditions:
+      - air_temp
+      - road_temp
+  - platform: trafikverket_weatherstation
+    name: 'Trafikverket Torpa'
+    api_key: 474653c56dd942088ffa462809d350c6
+    station: Torpa
+    monitored_conditions:
+      - air_temp
+      - road_temp
+  - platform: trafikverket_weatherstation
+    name: 'Trafikverket Stråvalla'
+    api_key: 474653c56dd942088ffa462809d350c6
+    station: Stråvalla
+    monitored_conditions:
+      - air_temp
+      - road_temp
+
+  - platform: min_max
+    name: 'Trafikverket medelvärde'
+    type: mean
+    entity_ids:
+      - sensor.trafikverket_sandsjobacka_road_temperature
+      - sensor.trafikverket_kungsbacka_road_temperature
+      - sensor.trafikverket_torpa_road_temperature
+      - sensor.trafikverket_stravalla_road_temperature
+
+  - platform: min_max
+    name: 'Trafikverket minimum'
+    type: min
+    entity_ids:
+      - sensor.trafikverket_sandsjobacka_road_temperature
+      - sensor.trafikverket_kungsbacka_road_temperature
+      - sensor.trafikverket_torpa_road_temperature
+      - sensor.trafikverket_stravalla_road_temperature

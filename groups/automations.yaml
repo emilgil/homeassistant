@@ -6,3 +6,11 @@ automations:
     - automation.tand_lampor_innan_solnedgang
     - automation.slack_lampor_kl_24
     - automation.nattsuddare
+    - input_select.log_level
+
+# {% for state in states.automation -%}
+# {%- if loop.first %}
+# {% elif loop.last %}
+# {% else %}
+# {% endif -%}
+# - automation.{{ state.name | lower |replace(' ', '_') | replace('å', 'a')|replace('ä', 'a')  |replace('ö', 'o') }}
