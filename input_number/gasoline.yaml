@@ -1,0 +1,15 @@
+input_number:
+  bensin:
+    name: Bensinpris
+    min: 10
+    max: 25
+    step: 0.01
+    mode: box
+    unit_of_measurement: 'kr/L'
+  diesel:
+    name: Dieselpris
+    min: 10
+    max: 25
+    step: 0.01
+    mode: box
+    unit_of_measurement: 'kr/L'

@@ -11,3 +11,8 @@
     entities:
       - switch.corner
       - switch.sofa
+
+  upstairs:
+    name: 'Övervåningen'
+    entities:
+      - light.olles_rum

@@ -11,6 +11,7 @@
       - group.switches
       - group.road_temp
       - group.air_temp
+      - group.gas_price
 
   computer_tab:
     name: Computers

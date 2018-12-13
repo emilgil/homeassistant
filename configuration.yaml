@@ -14,7 +14,7 @@ homeassistant:
   whitelist_external_dirs:
     - '/config'
   customize: !include customize.yaml
-  customize_glob: !include customglob.yaml
+  #customize_glob: !include customglob.yaml
   packages: !include_dir_named packages
 
 # Enables the frontend
@@ -61,14 +61,14 @@ logbook:
       - sensor.date
 
 logger:
-  default: fatal
-#  default: error
+#  default: info
+  default: error
   logs:
-  #   homeassistant.components.media_player: debug
-  #   homeassistant.components.script: debug
-  #   homeassistant.components.switch: debug
+  #  homeassistant.components.media_player: debug
+  #  homeassistant.components.sensor.scrape: debug
+#    homeassistant.components.sensor: warn
     homeassistant.components.automation: debug
-    homeassistant.components.device_tracker: debug
+    homeassistant.components.light: debug
 
 # Enables a map showing the location of tracked devices
 map:
@@ -86,6 +86,10 @@ recorder:
 #      - zwave
       - device_tracker
       - media_player
+  include:
+    entities:
+      - automation.bensinpris
+      - automation.dieselpris
 
 #group: !include groups.yaml
 group: !include_dir_merge_named groups/
@@ -96,14 +100,30 @@ automation: !include_dir_merge_list automations/
 #script: !include scripts.yaml
 script: !include_dir_merge_named scripts
 python_script:
-input_select: !include_dir_merge_named input_select
+#input_number: !include_dir_merge_named input_number
+input_number:
+  bensin:
+    name: Bensinpris
+    min: 10
+    max: 25
+    step: 0.01
+    mode: box
+    unit_of_measurement: 'kr/L'
+  diesel:
+    name: Dieselpris
+    min: 10
+    max: 25
+    step: 0.01
+    mode: box
+    unit_of_measurement: 'kr/L'
+
 sensor: !include_dir_merge_list sensors/
 
 influxdb:
   host: 192.168.1.21
   port: 8086
-  username: myggan
-  password: hubert
+  username: !secret influxdb_user
+  password: !secret influxdb_password
   database: homeassistant
   include:
     domains:
@@ -119,10 +139,7 @@ zwave:
   usb_path: /dev/ttyACM0
 
 device_tracker:
-  - platform: owntracks
-    #max_gps_accuracy: 200
-#
-  - platform: nmap
+  - platform: nmap_tracker
     hosts: 192.168.1.0/24
     home_interval: 10
     exclude:
@@ -142,14 +159,13 @@ device_tracker:
     host: 192.168.1.1
     community: !secret snmp_community
     baseoid: !secret snmp_baseoid
-
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - host: 192.168.1.46
-      mac: !secret xiaomi-mac
-      key: !secret xiaomi-key
-
+#
+  - platform: mqtt
+    devices:
+      emil_mobil_bt: 'hass/device_tracker/emil_mobil/state'
+#      emil_mobil_ot: 'owntracks/myggan/oneplus3t'
+#owntracks:
+ # max_gps_accuracy: 200
 
 # switch:
 #   platform: hadockermon
@@ -203,7 +219,10 @@ media_player:
 #     aliases:
 #       957d765467e46c4543d891667c0ce02d: 'Kitchen'
 #       602724f8c56962aa354e80f90faf46c4: 'Livingroom'
-
+light:
+  - platform: switch
+    name: TV
+    entity_id: switch.tv
 # 2018-07-31 22:35:45 DEBUG (SyncWorker_0) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.152', port=8009, uuid='957d7654-67e4-6c45-43d8-91667c0ce02d', model_name='Chromecast Audio', friendly_name='Köket')
 # 2018-07-31 22:35:45 DEBUG (SyncWorker_9) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
 # 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.kitchen, old_state=None, new_state=<state media_player.kitchen=unavailable; friendly_name=Chromecast kök, supported_features=21437 @ 2018-07-31T22:35:45.906224+02:00>>

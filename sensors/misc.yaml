@@ -2,3 +2,21 @@
     display_options:
       - 'time'
       - 'date'
+
+  - platform: template
+    sensors:
+      light_level:
+        friendly_name: Framsidan
+        unit_of_measurement: '%'
+        value_template: "{{ (states.light.framsidan.attributes.brightness /2.54)|int}}"
+
+      bensinpris:
+        friendly_name: Bensinpris
+        unit_of_measurement: 'kr/L'
+        value_template: "{{ states.input_number.bensin.state }}"
+      dieselpris:
+        friendly_name: Dieselpris
+        unit_of_measurement: 'kr/L'
+        value_template: "{{ states.input_number.diesel.state }}"
+# Unavailable sensors
+# {% for state in states.sensor %}{%- if state.state == 'unavailable' %}{{ state.name }} is {{state.state}}{% endif %} {% endfor %}

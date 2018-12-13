@@ -21,4 +21,16 @@
       service: notify.pushbullet
       data:
         title: "Vägtemperatur"
-        message: "Current: {{states.sensor.temperature_outdoor.state_with_unit}}, 12h median {{states.sensor['12h_outdoor_median'].state_with_unit}}"
+        message: "Current mean temp: {{states.sensor.trafikverket_medelvarde.state_with_unit}}, minimum {{states.sensor.trafikverket_minimum.state_with_unit}}"
+
+  - alias: "Temperaturvarning"
+    initial_state: true
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.temperature_outhouse
+      below: 8
+    action:
+      service: notify.pushbullet
+      data:
+        title: "Varning, låg temperatur"
+        message: "i boden {{states.sensor.temperature_outhouse.state_with_unit}}"

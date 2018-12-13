@@ -1,0 +1,35 @@
+  - platform: scrape
+    resource: https://twitter.com/St1Sverige
+    name: 'ST1 Diesel'
+    select: 'p:nth-of-type(5)'
+    value_template: >-
+      {% if '#St1Lindome' in value %}
+        {{ value[value.find("Diesel") + 8:]|truncate(5, True, "")|replace(",",".")|float }}
+      {% else %}
+        {{ value }}
+      {% endif %}
+    unit_of_measurement: Kr/L
+#        {{ value[value.find("Diesel") + 8:]|truncate(5, True, "")|replace(",",".")}}
+
+  - platform: scrape
+    resource: https://twitter.com/St1Sverige
+    name: 'ST1 Bensin'
+    select: 'p:nth-of-type(5)'
+    value_template: >-
+      {% if '#St1Lindome' in value %}
+        {{ value[value.find("B95") + 5:]|truncate(5, True, "")|replace(",",".")|float }}
+      {% else %}
+        {{ value }}
+      {% endif %}
+    unit_of_measurement: Kr/L
+#        {{ value[value.find("B95") + 5:]|truncate(5, True, "")|replace(",",".")}}
+  - platform: scrape
+    resource: https://twitter.com/St1Sverige
+    name: 'ST1 datum'
+    select: 'p:nth-of-type(5)'
+    value_template: >-
+      {% if '#St1Lindome' in value %}
+        {{ value[value.find("201") + 16:] }}
+      {% else %}
+        {{ value }}
+      {% endif %}

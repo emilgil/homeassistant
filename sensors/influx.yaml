@@ -29,3 +29,21 @@
         group_function: min
         measurement: '"°C"' #from
         where: '"entity_id" = ''temperature_outdoor'' and time > now() - 12h' #where
+        
+      - name: "12h Outdoor max"
+        database: homeassistant
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        field: value #select
+        group_function: max
+        measurement: '"°C"' #from
+        where: '"entity_id" = ''temperature_outdoor'' and time > now() - 12h' #where
+
+      - name: "12h Road min"
+        database: homeassistant
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        field: value #select
+        group_function: min
+        measurement: '"°C"' #from
+        where: '"entity_id" = ''trafikverket_minimum'' and time > now() - 12h' #where

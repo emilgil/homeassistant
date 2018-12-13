@@ -6,11 +6,19 @@
       - sensor.humidity_bedroom
       - sensor.temperature_livingroom
       - sensor.humidity_livingroom
-      - sensor.temperature_shed
-      - sensor.humidity_shed
-      - sensor.wine_cooler_temp
-      - sensor.wine_cooler_humidity
-
+      - sensor.temperature_outhouse
+      - sensor.humidity_outhouse
+      - sensor.temperature_wine_cooler
+      - sensor.humidity_wine_cooler
+  temperatures:
+    name: Temperaturer
+    icon: mdi:home
+    entities:
+      - sensor.temperature_bedroom
+      - sensor.temperature_livingroom
+      - sensor.temperature_outhouse
+      - sensor.temperature_outdoor
+      
   outdoor_climate:
     name: Utomhusklimat
     icon: mdi:home-outline
@@ -20,3 +28,4 @@
       - sensor.pressure_outdoor
       - sensor.12h_outdoor_median
       - sensor.12h_outdoor_mean
+      - sensor.12h_outdoor_min

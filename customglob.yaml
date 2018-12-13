@@ -10,3 +10,7 @@
   hidden: true
 "sensor.fibaro*":
   hidden: true
+"sensor.presence*":
+#  icon: mdi:android
+  icon_color: >
+    if (state == 'Home') return 'rgb(50,205,50)'; else return 'rgb(178,34,34)';

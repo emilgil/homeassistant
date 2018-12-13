@@ -1,12 +1,12 @@
-automations:
-  name: "Automationer"
-  entities:
-    - automation.tand_lampor_kl_05
-    - automation.slack_lampor_en_timme_efter_soluppgang
-    - automation.tand_lampor_innan_solnedgang
-    - automation.slack_lampor_kl_24
-    - automation.nattsuddare
-    - input_select.log_level
+# automations:
+#   name: "Automationer"
+#   entities:
+#     - automation.tand_lampor_kl_05
+#     - automation.slack_lampor_en_timme_efter_soluppgang
+#     - automation.tand_lampor_innan_solnedgang
+#     - automation.slack_lampor_kl_24
+#     - automation.nattsuddare
+#     - input_select.log_level
 
 # {% for state in states.automation -%}
 # {%- if loop.first %}

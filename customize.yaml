@@ -1,3 +1,111 @@
-   script.radio_on:
-    friendly_name: Start Playing
-    icon: mdi:play
+script.radio_on:
+  friendly_name: Start Playing
+  icon: mdi:play
+binary_sensor.openclose_21:
+  friendly_name: boden
+sensor.temperature_bedroom:
+  friendly_name: Sovrummet
+sensor.temperature_outdoor:
+  friendly_name: Utomhus
+sensor.humidity_bedroom:
+  friendly_name: Sovrummet
+sensor.temperature_livingroom:
+  friendly_name: Vardagsrummet
+sensor.humidity_livingroom:
+  friendly_name: Vardagsrummet
+sensor.temperature_outhouse:
+  friendly_name: Boden
+sensor.humidity_outhouse:
+  friendly_name: Boden
+sensor.pressure_outhouse:
+  friendly_name: Boden
+  icon: mdi:thermometer
+switch.tv:
+  icon: mdi:lightbulb
+switch.sofa:
+  icon: mdi:lightbulb
+switch.corner:
+  icon: mdi:lightbulb
+sensor.trafikverket_kungsbacka_air_temperature:
+  friendly_name: Kungsbacka
+sensor.trafikverket_kungsbacka_road_temperature:
+  friendly_name: Kungsbacka
+sensor.trafikverket_sandsjobacka_air_temperature:
+  friendly_name: Sandsjöbacka
+sensor.trafikverket_sandsjobacka_road_temperature:
+  friendly_name: Sandsjöbacka
+sensor.trafikverket_stravalla_air_temperature:
+  friendly_name: Stråvalla
+sensor.trafikverket_stravalla_road_temperature:
+  friendly_name: Stråvalla
+sensor.trafikverket_torpa_air_temperature:
+  friendly_name: Torpa
+sensor.trafikverket_torpa_road_temperature:
+  friendly_name: Torpa
+sensor.trafikverket_medelvarde:
+  friendly_name: Medelvärde
+  icon: mdi:thermometer
+sensor.trafikverket_minimum:
+  friendly_name: Minimum
+  icon: mdi:thermometer
+sensor.12h_road_min:
+  friendly_name: 12h minimum
+sensor.12h_outdoor_mean:
+  friendly_name: 12h genomsnitt
+sensor.12h_outdoor_median:
+  friendly_name: 12h median
+sensor.12h_outdoor_min:
+  friendly_name: 12h minimum
+sensor.eaton3s_battery_charge:
+  friendly_name: Laddning
+sensor.eaton3s_load:
+  friendly_name: Last
+sensor.eaton3s_status:
+  friendly_name: Status
+sensor.hd_temperature_devsda:
+  friendly_name: Temperatur
+sensor.hd_temperature_devsdb:
+  friendly_name: Media 4TB
+sensor.hd_temperature_devsdc:
+  friendly_name: Backup 4TB
+sensor.hd_temperature_devsdd:
+  friendly_name: Emil 2TB
+sensor.hd_temperature_devsde:
+  friendly_name: SSD 120GB
+sensor.network_in_enp2s0:
+  friendly_name: MiB in
+sensor.network_out_enp2s0:
+  friendly_name: MiB ut
+sensor.memory_use_percent:
+  friendly_name: Minnesanvändning
+sensor.pihole_ads_blocked_today:
+  friendly_name: Stoppade annonser
+sensor.speedtest_download:
+  friendly_name: Download
+sensor.speedtest_ping:
+  friendly_name: Ping
+sensor.speedtest_upload:
+  friendly_name: Upload
+sensor.since_last_boot:
+  friendly_name: Tid sedan omstart
+sensor.12h_outdoor_max:
+  friendly_name: 12h maximum
+sensor.disk_free_media4tb:
+  friendly_name: Ledigt
+sensor.disk_use_percent_media4tb:
+  friendly_name: '% använt'
+sensor.disk_free_mediabackup4tb:
+  friendly_name: Ledigt
+sensor.disk_free_mediaemil2tb:
+  friendly_name: Ledigt
+sensor.disk_free_mediahanna2tb:
+  friendly_name: Ledigt
+sensor.disk_use_percent_mediabackup4tb:
+  friendly_name: '% använt'
+sensor.disk_use_percent_mediaemil2tb:
+  friendly_name: '% använt'
+sensor.disk_use_percent_mediahanna2tb:
+  friendly_name: '% använt'
+  unit_of_measurement: '%'
+device_tracker.20dfb99efdd5:
+  friendly_name: 'Google Home mini '

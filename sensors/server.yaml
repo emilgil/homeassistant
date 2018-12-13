@@ -21,8 +21,47 @@
       - battery.runtime
       - battery.charge
 
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /media/hanna2tb
+      - type: disk_use_percent
+        arg: /media/emil2tb
+      - type: disk_use_percent
+        arg: /media/backup4tb
+      - type: disk_use_percent
+        arg: /media/4tb
+      - type: disk_free
+        arg: /media/hanna2tb
+      - type: disk_free
+        arg: /media/emil2tb
+      - type: disk_free
+        arg: /media/backup4tb
+      - type: disk_free
+        arg: /media/4tb
+      - type: memory_use_percent
+      - type: load_1m
+      - type: load_15m
+      - type: network_in
+        arg: enp2s0
+      - type: network_out
+        arg: enp2s0
+      - type: since_last_boot
+
   - platform: pi_hole
     host: 192.168.1.21
+
+  - platform: speedtest
+    server_id: 6062 #https://www.speedtestserver.com/
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 
   # - platform: unifi
   #   name: Unifi

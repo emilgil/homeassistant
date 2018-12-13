@@ -1,0 +1,23 @@
+  - alias: 'Bensinpris'
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.st1_bensin
+      above: '10'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.bensin
+        value: "{{ states.sensor.st1_bensin.state }}"
+
+  - alias: 'Dieselpris'
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.st1_diesel
+      above: '10'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.diesel
+        value: "{{ states.sensor.st1_diesel.state }}"

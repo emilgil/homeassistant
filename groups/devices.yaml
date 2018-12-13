@@ -1,0 +1,15 @@
+  emil_devices:
+#    name: presence_emil
+    icon: mdi:phone-android
+    entities:
+      - device_tracker.emil_mobil
+      - device_tracker.emil_mobil_bt
+      - device_tracker.myggan_oneplus3t
+
+  hanna_devices:
+#    name: presence_hanna
+    icon: mdi:phone-android
+    entities:
+      - device_tracker.hanna_sony
+      - device_tracker.hanna_mobil_bt
+      - device_tracker.gear_sport
