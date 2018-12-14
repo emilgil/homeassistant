@@ -46,7 +46,7 @@
         arg: enp2s0
       - type: network_out
         arg: enp2s0
-      - type: since_last_boot
+      - type: last_boot
 
   - platform: pi_hole
     host: 192.168.1.21

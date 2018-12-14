@@ -13,9 +13,15 @@
         transition: 10
     - service: light.turn_on
       data:
-        entity_id: light.bottenvaningen
-        brightness_pct: 100
+        entity_id: light.hornet
+        brightness_pct: 75
         transition: 10
+    - service: light.turn_on
+      data:
+        entity_id: light.soffan
+        brightness_pct: 75
+        transition: 10
+
     # - service: notify.pushbullet
     #   data:
     #     message: "Morning lights on"
@@ -54,7 +60,12 @@
         brightness_pct: 100
     - service: light.turn_on
       data:
-        entity_id: light.bottenvaning
+        entity_id: light.hornet
+        brightness_pct: 75
+        transition: 10
+    - service: light.turn_on
+      data:
+        entity_id: light.soffan
         brightness_pct: 75
         transition: 10
     # - service: notify.pushbullet
@@ -72,11 +83,16 @@
     - service: switch.turn_off
       entity_id: switch.tv
     - service: light.turn_on
-      data: 
-        entity_id: light.bottenvaning
+      data:
+        entity_id: light.hornet
         brightness_pct: 30
         transition: 10
-
+    - service: light.turn_on
+      data:
+        entity_id: light.soffan
+        brightness_pct: 30
+        transition: 10
+        
   - alias: 'Släck lampor kl 22'
     hide_entity: false
     initial_state: True

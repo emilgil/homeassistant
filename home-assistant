@@ -1,0 +1,95 @@
+2018-12-11 22:14:25 ERROR (MainThread) [homeassistant.loader] Unable to find component owntracks
+2018-12-11 22:14:25 ERROR (MainThread) [homeassistant.setup] Setup failed for owntracks: Component not found.
+2018-12-11 22:14:26 ERROR (MainThread) [homeassistant.loader] Unable to find component light.switch
+2018-12-11 22:14:28 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.temperaturvarning initial state True from config initial_state
+2018-12-11 22:14:28 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.temperatur initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.bensinpris initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.slack_lampor_kl_22 initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.log_level initial state True from default initial state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.keep_chromecasts_awake initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.nattsuddare initial state True from default initial state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.tand_lampor_kl_05 initial state True from default initial state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.get_ungrouped_entities_on_start initial state True from default initial state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.slack_lampor_en_timme_efter_soluppgang initial state True from default initial state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.p1 initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.tand_lampor_innan_solnedgang initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.p3 initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.dieselpris initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.vagtemperatur initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.slack_lampor_kl_24 initial state True from config initial_state
+2018-12-11 22:14:29 DEBUG (MainThread) [homeassistant.components.automation] Automation automation.radio_av initial state True from config initial_state
+2018-12-11 22:14:29 INFO (MainThread) [homeassistant.components.light] Setting up light.zwave
+2018-12-11 22:14:29 INFO (MainThread) [homeassistant.components.light] Setting up light.deconz
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Temperaturvarning
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Temperatur
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Bensinpris
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Släck lampor kl 22
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Log Level
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Keep Chromecasts awake
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Nattsuddare
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Tänd lampor kl 05
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Get Ungrouped Entities On Start
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Släck lampor en timme efter soluppgång
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger P1
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Tänd lampor innan solnedgång
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger P3
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Dieselpris
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Vägtemperatur
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Släck lampor kl 24
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Radio av
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Executing Get Ungrouped Entities On Start
+2018-12-11 22:14:38 INFO (MainThread) [homeassistant.components.automation] Initialized trigger Temperatur
+2018-12-11 22:14:39 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/usr/src/app/homeassistant/components/discovery.py", line 171, in scan_devices
+    results = await hass.async_add_job(_discover, netdisco)
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/app/homeassistant/components/discovery.py", line 197, in _discover
+    netdisco.scan()
+  File "/usr/local/lib/python3.6/site-packages/netdisco/discovery.py", line 57, in scan
+    self.mdns.start()
+  File "/usr/local/lib/python3.6/site-packages/netdisco/mdns.py", line 21, in start
+    self.zeroconf = zeroconf.Zeroconf()
+  File "/usr/local/lib/python3.6/site-packages/zeroconf.py", line 1734, in __init__
+    socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, _value)
+OSError: [Errno 105] No buffer space available
+2018-12-11 23:59:59 INFO (MainThread) [homeassistant.components.automation] Executing Släck lampor kl 24
+2018-12-12 00:20:00 INFO (MainThread) [homeassistant.components.automation] Executing Temperaturvarning
+2018-12-12 02:06:04 INFO (MainThread) [homeassistant.components.automation] Executing Temperaturvarning
+2018-12-12 02:55:08 ERROR (Thread-3) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-12 03:40:47 ERROR (Thread-3) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-12 03:57:51 INFO (MainThread) [homeassistant.components.automation] Executing Temperaturvarning
+2018-12-12 04:52:38 ERROR (Thread-4) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-12 05:00:00 INFO (MainThread) [homeassistant.components.automation] Executing Tänd lampor kl 05
+2018-12-12 05:15:00 INFO (MainThread) [homeassistant.components.automation] Executing Temperatur
+2018-12-12 05:30:00 ERROR (SyncWorker_1) [homeassistant.components.sensor.rest] Error fetching data: <PreparedRequest [GET]> from https://twitter.com/St1Sverige failed with ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2018-12-12 05:30:00 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.st1_diesel fails
+Traceback (most recent call last):
+  File "/usr/src/app/homeassistant/helpers/entity.py", line 221, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/app/homeassistant/helpers/entity.py", line 349, in async_device_update
+    await self.hass.async_add_executor_job(self.update)
+  File "/usr/local/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/src/app/homeassistant/components/sensor/scrape.py", line 117, in update
+    raw_data = BeautifulSoup(self.rest.data, 'html.parser')
+  File "/usr/local/lib/python3.6/site-packages/bs4/__init__.py", line 246, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'NoneType' has no len()
+2018-12-12 05:45:00 INFO (MainThread) [homeassistant.components.automation] Executing Vägtemperatur
+2018-12-12 06:22:13 INFO (MainThread) [homeassistant.components.automation] Executing Temperaturvarning
+2018-12-12 09:44:20 INFO (MainThread) [homeassistant.components.automation] Executing Släck lampor en timme efter soluppgång
+2018-12-12 09:44:20 ERROR (MainThread) [homeassistant.components.sensor.template] Could not render template Framsidan: UndefinedError: 'mappingproxy object' has no attribute 'brightness'
+2018-12-12 14:40:45 INFO (MainThread) [homeassistant.components.automation] Executing Tänd lampor innan solnedgång
+2018-12-12 18:57:10 INFO (MainThread) [homeassistant.components.automation] Executing Temperaturvarning
+2018-12-12 21:59:59 INFO (MainThread) [homeassistant.components.automation] Executing Släck lampor kl 22
+2018-12-12 23:59:59 INFO (MainThread) [homeassistant.components.automation] Executing Släck lampor kl 24
+2018-12-13 02:03:24 ERROR (Thread-3) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-13 04:42:50 ERROR (Thread-4) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-13 05:00:00 INFO (MainThread) [homeassistant.components.automation] Executing Tänd lampor kl 05
+2018-12-13 05:15:00 INFO (MainThread) [homeassistant.components.automation] Executing Temperatur
+2018-12-13 05:45:00 INFO (MainThread) [homeassistant.components.automation] Executing Vägtemperatur
+2018-12-13 09:45:31 INFO (MainThread) [homeassistant.components.automation] Executing Släck lampor en timme efter soluppgång
+2018-12-13 09:45:31 ERROR (MainThread) [homeassistant.components.sensor.template] Could not render template Framsidan: UndefinedError: 'mappingproxy object' has no attribute 'brightness'
+2018-12-13 14:40:30 INFO (MainThread) [homeassistant.components.automation] Executing Tänd lampor innan solnedgång

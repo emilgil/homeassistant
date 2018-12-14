@@ -13,7 +13,7 @@ excluded_entities:
   - weblink.router
 
 views:
-    # View tab title.
+    # View tab title. 
   - title: Hemma
     icon: mdi:home
     id: home
@@ -60,7 +60,8 @@ views:
           show_header_toggle: true
           entities:
           - entity: switch.tv
-            tap_action: toggle
+            tap_action:
+              action: toggle
         - type: light
           entity: light.tv
         - type: light
@@ -124,7 +125,8 @@ views:
         - entity: sensor.memory_use_percent
         - entity: sensor.network_in_enp2s0
         - entity: sensor.network_out_enp2s0
-        - entity: sensor.since_last_boot
+        - entity: sensor.last_boot
+          tap_action: none
         - entity: sensor.pihole_ads_blocked_today
         - entity: sensor.hd_temperature_devsde
       - type: glance
