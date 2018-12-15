@@ -222,6 +222,7 @@ media_player:
 
 light:
   - platform: switch
+    name: tv
     entity_id: switch.tv
 # 2018-07-31 22:35:45 DEBUG (SyncWorker_9) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
 # 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.kitchen, old_state=None, new_state=<state media_player.kitchen=unavailable; friendly_name=Chromecast kök, supported_features=21437 @ 2018-07-31T22:35:45.906224+02:00>>

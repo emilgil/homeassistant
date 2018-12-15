@@ -4,6 +4,7 @@
     - switch.corner
     - switch.sofa
     - switch.tv
+    - light.tv
 
   morning:
     name: 'Morgonbelysning'
