@@ -2,33 +2,44 @@
     control: hidden
     icon: mdi:docker
     entities:
-     - switch.docker_appdaemon
-     - switch.docker_deconz
-     - switch.docker_duckdns
-     - switch.docker_glances
-     - switch.docker_grafana
-     - switch.docker_hddtemp
-     - switch.docker_hivemq
-     - switch.docker_homeassistant
-     - switch.docker_influxdb
-     - switch.docker_jackett
-     - switch.docker_kodi
-     - switch.docker_mariadb_adminer_1
-     - switch.docker_mariadb_db_1
-     - switch.docker_mosquitto
-     - switch.docker_netdata
-     - switch.docker_openvpn
-     - switch.docker_organizr
-     - switch.docker_pihole
-     - switch.docker_plex
-     - switch.docker_portainer
-     - switch.docker_radarr
-     - switch.docker_sonarr
-     - switch.docker_telegraf
-     - switch.docker_transmission
-     - switch.docker_unifi
-     - switch.docker_watchtower
-     - switch.docker_webnut
+    - switch.docker_appdaemon
+    - switch.docker_deconz
+    - switch.docker_deconzconfig
+    - switch.docker_duckdns
+    - switch.docker_gammu
+    - switch.docker_glances
+    - switch.docker_grafana
+    - switch.docker_hddtemp
+    - switch.docker_hivemq
+    - switch.docker_influxdb
+    - switch.docker_jackett
+    - switch.docker_kodi
+    - switch.docker_mariadb_adminer_1
+    - switch.docker_mariadb_db_1
+    - switch.docker_mosquitto
+    - switch.docker_openvpn
+    - switch.docker_organizr
+    - switch.docker_ovpnmonitor
+    - switch.docker_pihole
+    - switch.docker_plex
+    - switch.docker_portainer
+    - switch.docker_radarr
+    - switch.docker_sonarr
+    - switch.docker_telegraf
+    - switch.docker_transmission
+    - switch.docker_unifi
+    - switch.docker_vpnproxy
+    - switch.docker_watchtower
+    - switch.docker_webnut
+
+  docker_badges:
+    entities:
+    - group.docker_containers
+    - switch.docker_appdaemon
+    - switch.docker_deconz
+    - switch.docker_deconzconfig
+    - switch.docker_duckdns
+    - switch.docker_gammu
 
 # Generate list of containers in dev-template
 # {% for state in states.switch -%}
@@ -36,5 +47,6 @@
 # {% elif loop.last %}
 # {% else %}
 # {% endif -%}
-# - switch.docker_{{ state.name | upper }}
+# - switch.docker_{{ state.name | lower }}
 # {%- endfor %}
+# inga bindestreck tillåtna

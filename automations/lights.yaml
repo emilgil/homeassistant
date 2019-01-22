@@ -4,8 +4,8 @@
       platform: time
       at: "05:00:00"
     action:
-#    - service: switch.turn_on
-#      entity_id: group.morning
+    - service: switch.turn_on
+      entity_id: switch.ljusslinga
     - service: light.turn_on
       data:
         entity_id: light.framsidan
@@ -14,18 +14,14 @@
     - service: light.turn_on
       data:
         entity_id: light.hornet
-        brightness_pct: 75
+        brightness_pct: 50
         transition: 10
     - service: light.turn_on
       data:
         entity_id: light.soffan
-        brightness_pct: 75
+        brightness_pct: 50
         transition: 10
 
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Morning lights on"
-    #     title: "Morning lights on"
 
   - alias: 'Släck lampor en timme efter soluppgång'
     hide_entity: false
@@ -39,10 +35,7 @@
     - service: light.turn_off
       data:
         entity_id: light.alla_lampor
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Morning lights off"
-    #     title: "Morning lights off"
+
 
   - alias: 'Tänd lampor innan solnedgång'
     hide_entity: false
@@ -61,17 +54,14 @@
     - service: light.turn_on
       data:
         entity_id: light.hornet
-        brightness_pct: 75
+        brightness_pct: 55
         transition: 10
     - service: light.turn_on
       data:
         entity_id: light.soffan
-        brightness_pct: 75
+        brightness_pct: 55
         transition: 10
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Evening lights on"
-    #     title: "Evening lights on"
+
 
   - alias: 'Släck lampor kl 24'
     hide_entity: false
@@ -92,7 +82,7 @@
         entity_id: light.soffan
         brightness_pct: 30
         transition: 10
-        
+
   - alias: 'Släck lampor kl 22'
     hide_entity: false
     initial_state: True
@@ -110,10 +100,7 @@
         entity_id: light.olles_fonster
         brightness_pct: 15
         transition: 30
-    # - service: notify.pushbullet
-    #   data:
-    #     message: "Evening lights off"
-    #     title: "Evening lights off"
+
 
   - alias: 'Nattsuddare'
     hide_entity: false

@@ -13,7 +13,7 @@ excluded_entities:
   - weblink.router
 
 views:
-    # View tab title. 
+    # View tab title.
   - title: Hemma
     icon: mdi:home
     id: home
@@ -55,17 +55,17 @@ views:
     cards:
       - type: vertical-stack
         cards:
-        - type: glance
-          title: Lights
-          show_header_toggle: true
-          entities:
-          - entity: switch.tv
-            tap_action:
-              action: toggle
+        # - type: glance
+        #   title: Lights
+        #   show_header_toggle: true
+        #   entities:
+        #   - entity: switch.tv
+        #     tap_action:
+        #       action: toggle
         - type: light
           entity: light.tv
-        - type: light
-          entity: light.soffan
+        # - type: light
+        #   entity: light.soffan
         - type: light
           entity: light.hornet
         - type: light

@@ -1,16 +1,120 @@
-"sensor.humidity*":
+"*.*":
+  custom_ui_state_card: state-card-custom-ui
+group.automation_badges:
+  state_card_mode: badges
+group.docker_containers:
+  state_card_mode: badges
+
+sensor.humidity*:
   icon: mdi:water-percent
-"sensor.vinkylen*":
+sensor.vinkylen*:
   icon: mdi:wine-bottle
-"sensor.neo*":
+sensor.neo*:
   hidden: true
-"sensor.qubino*":
+sensor.qubino*:
   hidden: true
-"zwave*":
+zwave*:
   hidden: true
-"sensor.fibaro*":
+sensor.fibaro*:
   hidden: true
-"sensor.presence*":
-#  icon: mdi:android
-  icon_color: >
-    if (state == 'Home') return 'rgb(50,205,50)'; else return 'rgb(178,34,34)';
+# device_tracker.*:
+#   templates:
+#     icon_color: >
+#       if (state === 'Home') return 'rgb(255, 255, 0)';
+#       if (state === Home) return 'rgb(0, 255, 255)';
+#       if (state === 'home') return 'rgb(255, 0, 255)';
+#       if (state === home) return 'rgb(200, 200, 200)';
+#       if (state == 'Home') return 'rgb(50, 50, 50)';
+#       if (state == Home) return 'rgb(255, 0, 0)';
+#       if (state == 'home') return 'rgb(0, 255, 0)';
+#       if (state == home) return 'rgb(0, 0, 0)';
+#       return 'rgb(120, 120, 0)';
+#  hidden: true
+device_tracker.*:
+  state_card_mode: badges
+  templates:
+    icon_color: >
+      if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+    theme: >
+      if (state === 'home') return 'green_badge'; else return 'red_badge';
+
+sensor.presence*:
+  state_card_mode: badges
+  templates:
+    icon_color: >
+      if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+    theme: >
+      if (state === 'home') return 'green_badge'; else return 'red_badge';
+
+switch.docker*:
+  templates:
+    icon_color: >
+      if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+    theme: >
+      if (state === 'on') return 'green_badge'; else return 'red_badge';
+
+automation*:
+  state_card_mode: badges
+  templates:
+    icon_color: >
+      if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+    theme: >
+      if (state === 'on') return 'green_badge'; else return 'red_badge';
+
+sensor.12h*:
+  templates:
+    icon_color: >
+      if (state < -10) return 'rgb(0, 0, 255)';
+      if (state < -5) return 'rgb(0, 100, 255)';
+      if (state < 0) return 'rgb(255, 200, 50)';
+      if (state < 10) return 'rgb(255, 150, 50)';
+      if (state < 15) return 'rgb(255, 130, 0)';
+      if (state < 20) return 'rgb(255, 120, 70)';
+      if (state < 25) return 'rgb(255, 50, 0)';
+      return 'rgb(47, 0, 0)';
+
+sensor.temperature*:
+  templates:
+    icon_color: >
+      if (state < -10) return 'rgb(0, 0, 255)';
+      if (state < -5) return 'rgb(0, 100, 255)';
+      if (state < 0) return 'rgb(255, 200, 50)';
+      if (state < 10) return 'rgb(255, 150, 50)';
+      if (state < 15) return 'rgb(255, 130, 0)';
+      if (state < 20) return 'rgb(255, 120, 70)';
+      if (state < 25) return 'rgb(255, 50, 0)';
+      return 'rgb(47, 0, 0)';
+
+sensor.trafikverket*:
+  templates:
+    icon_color: >
+      if (state < -10) return 'rgb(0, 0, 255)';
+      if (state < -5) return 'rgb(0, 100, 255)';
+      if (state < 0) return 'rgb(255, 200, 50)';
+      if (state < 10) return 'rgb(255, 150, 50)';
+      if (state < 15) return 'rgb(255, 130, 0)';
+      if (state < 20) return 'rgb(255, 120, 70)';
+      if (state < 25) return 'rgb(255, 50, 0)';
+      return 'rgb(47, 0, 0)';
+
+sensor.hd_temperature*:
+  templates:
+    icon_color: >
+      if (state < 15) return 'rgb(50, 150, 50)';
+      if (state < 20) return 'rgb(50, 200, 50)';
+      if (state < 25) return 'rgb(150, 255, 50)';
+      if (state < 30) return 'rgb(255, 200, 0)';
+      if (state < 35) return 'rgb(255, 100, 0)';
+      if (state < 40) return 'rgb(255, 0, 0)';
+      return 'rgb(200, 0, 0)';
+
+sensor.disk_use_percent*:
+  templates:
+    icon_color: >
+      if (state < 60) return 'rgb(50, 150, 50)';
+      if (state < 70) return 'rgb(50, 200, 50)';
+      if (state < 80) return 'rgb(150, 255, 50)';
+      if (state < 85) return 'rgb(255, 200, 0)';
+      if (state < 90) return 'rgb(255, 100, 0)';
+      if (state < 95) return 'rgb(255, 0, 0)';
+      return 'rgb(200, 0, 0)';

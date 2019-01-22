@@ -13,3 +13,65 @@
       - device_tracker.hanna_sony
       - device_tracker.hanna_mobil_bt
       - device_tracker.gear_sport
+
+  presence_badges:
+    entities:
+      - group.emil_devices
+      - group.hanna_devices
+
+  device_badges:
+    entities:
+      - group.all_devices
+
+  all_devices:
+    name: "Alla enheter"
+    icon: mdi:cellphone-link
+    entities:
+      - device_tracker.0896ad2d5c6a
+      - device_tracker.12e3e326a3cc
+      - device_tracker.14a6e0f86e8d
+      - device_tracker.20dfb99efdd5
+      - device_tracker.28e14c371f4c
+      - device_tracker.2c3361830a9b
+      - device_tracker.3402868d6f4e
+      - device_tracker.34a395490703
+      - device_tracker.40167e292612
+      - device_tracker.44d9e7f29c31
+      - device_tracker.58e28f255c3b
+      - device_tracker.802aa8d6698b
+      - device_tracker.848e0cc15d3d
+      - device_tracker.9cb6d0eb60ed
+      - device_tracker.a8d8698b3878
+      - device_tracker.acb57dc5c509
+      - device_tracker.acbc32a33d9d
+      - device_tracker.b88198478696
+      - device_tracker.c3_po
+      - device_tracker.c4b301a47638
+      - device_tracker.cckitchen
+      - device_tracker.ccstereo
+      - device_tracker.cctv
+      - device_tracker.client
+      - device_tracker.dcd3a2a163aa
+      - device_tracker.e4ce8f592f5d
+      - device_tracker.edgerouterx
+      - device_tracker.emil_mobil
+      - device_tracker.emil_mobil_bt
+      - device_tracker.emil_mobil_ot
+      - device_tracker.f09fc2618cde
+      - device_tracker.f09fc2c7f096
+      - device_tracker.gear_sport
+      - device_tracker.hanna_mobil_bt
+      - device_tracker.hanna_mobil
+      - device_tracker.hannas_imac_3
+      - device_tracker.monicas_ipad
+      - device_tracker.emil_owntracks
+      - device_tracker.pingvin
+      - device_tracker.proliant
+      - device_tracker.raspberrypi
+      - device_tracker.xiaomi_gateway
+
+# {% for state in states.device_tracker -%}
+# {%- if loop.first %}{% elif loop.last %}{% else %}{% endif -%}
+# - device_tracker.{{ state.name | lower |replace(' ', '_') | replace('å', 'a')|replace('ä', 'a')  |replace('ö', 'o') }}
+# {% endfor %}
+#ersätt google_home_mini_ med 20dfb99efdd5

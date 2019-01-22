@@ -26,11 +26,37 @@
   - alias: "Temperaturvarning"
     initial_state: true
     trigger:
-      platform: numeric_state
-      entity_id: sensor.temperature_outhouse
-      below: 8
+      # platform: numeric_state
+      # entity_id: sensor.temperature_outhouse
+      # below: 8
+      platform: template
+      value_template: "{{ states('input_number.test_slider'|float) < states('input_number.boden_alarm_level'|float) }}"
     action:
       service: notify.pushbullet
       data:
         title: "Varning, låg temperatur"
         message: "i boden {{states.sensor.temperature_outhouse.state_with_unit}}"
+
+  - alias: 'New Device Tracked'
+    trigger:
+      platform: event
+      event_type: device_tracker_new_device
+    action:
+      - service: notify.pushbullet
+        data_template:
+          message: >
+            {{trigger.event.data.host_name}}
+            ({{trigger.event.data.entity_id}})
+          title: 'New device detected'
+
+  - alias: 'Notify new Version'
+    id: '014'
+    trigger:
+      platform: state
+      entity_id: updater.updater
+    condition: []
+    action:
+      - service: notify.pushbullet
+        data:
+          message: "Version {{ states.updater.updater.state }} \xE4r nu tillg\xE4nglig"
+          title: "Ny version tillg\xE4nglig"

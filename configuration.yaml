@@ -14,14 +14,29 @@ homeassistant:
   whitelist_external_dirs:
     - '/config'
   customize: !include customize.yaml
-  #customize_glob: !include customglob.yaml
+  customize_glob: !include customglob.yaml
   packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
+  themes:
+    green_badge:
+      label-badge-red: green
+      label-badge-border-color: lightgrey
+      label-badge-background-color: white
+      label-badge-text-color: green
+
+    red_badge:
+     label-badge-red: grey
+     label-badge-border-color: lightgrey
+     label-badge-background-color: white
+     label-badge-text-color: red
 
 # Enables configuration UI
 config:
+
+customizer:
+  custom_ui: local
 
 http:
   # Secrets are defined in the file secrets.yaml
@@ -61,14 +76,13 @@ logbook:
       - sensor.date
 
 logger:
-#  default: info
   default: error
   logs:
   #  homeassistant.components.media_player: debug
   #  homeassistant.components.sensor.scrape: debug
-#    homeassistant.components.sensor: warn
+    homeassistant.components.lights: debug
     homeassistant.components.automation: debug
-    homeassistant.components.light: debug
+ #   homeassistant.components.device_tracker: debug
 
 # Enables a map showing the location of tracked devices
 map:
@@ -116,6 +130,18 @@ input_number:
     step: 0.01
     mode: box
     unit_of_measurement: 'kr/L'
+  boden_alarm_level:
+    name: 'Larmgräns boden'
+    min: 0
+    max: 25
+    step: 0.1
+    unit_of_measurement: '°C'
+  test_slider:
+    name: test_slider
+    min: 0
+    max: 25
+    step: 1
+    unit_of_measurement: '°C'
 
 sensor: !include_dir_merge_list sensors/
 
@@ -167,14 +193,15 @@ device_tracker:
 owntracks:
   max_gps_accuracy: 200
 
-# switch:
-#   platform: hadockermon
-#   host: 192.168.1.21
-#   port: 8126
-#   stats: true
-#   prefix: docker_
-#   exclude:
-#     - ha-dockermon
+switch:
+  platform: hadockermon
+  host: 192.168.1.21
+  port: 8126
+  stats: true
+  prefix: docker_
+  exclude:
+    - ha-dockermon
+    - home-assistant
 
 # -------------------------------------------------------------------
 # *** NOTIFICATIONS ***
@@ -222,8 +249,15 @@ media_player:
 
 light:
   - platform: switch
-    name: tv
+    name: TV
     entity_id: switch.tv
+  - platform: switch
+    name: Ljusslinga
+    entity_id: switch.ljusslinga
+  - platform: switch
+    name: Reserv
+    entity_id: switch.spare
+
 # 2018-07-31 22:35:45 DEBUG (SyncWorker_9) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
 # 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.kitchen, old_state=None, new_state=<state media_player.kitchen=unavailable; friendly_name=Chromecast kök, supported_features=21437 @ 2018-07-31T22:35:45.906224+02:00>>
 # 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.152', port=8009, uuid='957d7654-67e4-6c45-43d8-91667c0ce02d', model_name='Chromecast Audio', friendly_name='Köket')

@@ -1,16 +1,35 @@
-# automations:
-#   name: "Automationer"
-#   entities:
-#     - automation.tand_lampor_kl_05
-#     - automation.slack_lampor_en_timme_efter_soluppgang
-#     - automation.tand_lampor_innan_solnedgang
-#     - automation.slack_lampor_kl_24
-#     - automation.nattsuddare
-#     - input_select.log_level
+  automation_badges:
+    # name: "Automationer"
+    # control: hidden
+    # icon: mdi: robot
+    entities:
+      - automation.bensinpris
+      - automation.dieselpris
+      - automation.get_ungrouped_entities_on_start
+      - automation.keep_chromecasts_awake
+      - automation.log_level
+      - automation.nattsuddare
+      - automation.new_device_tracked
+      - automation.notify_new_version
+      - automation.p1
+      - automation.p3
+      - automation.radio_av
+      - automation.slack_lampor_en_timme_efter_soluppgang
+      - automation.slack_lampor_kl_22
+      - automation.slack_lampor_kl_24
+      - automation.tand_lampor_innan_solnedgang
+      - automation.tand_lampor_kl_05
+      - automation.temperatur
+      - automation.temperaturvarning
+      - automation.vagtemperatur
 
+  automations:
+    # name: "Automationer"
+    # control: hidden
+    # icon: mdi:robot
+      entities:
+        - group.automation_badges
 # {% for state in states.automation -%}
-# {%- if loop.first %}
-# {% elif loop.last %}
-# {% else %}
-# {% endif -%}
+# {%- if loop.first %}{% elif loop.last %}{% else %}{% endif -%}
 # - automation.{{ state.name | lower |replace(' ', '_') | replace('å', 'a')|replace('ä', 'a')  |replace('ö', 'o') }}
+# {% endfor %}

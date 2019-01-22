@@ -23,9 +23,11 @@ sensor.pressure_outhouse:
 switch.tv:
   icon: mdi:lightbulb
 switch.sofa:
-  icon: mdi:lightbulb
+  friendly_name: Ljusslinga
+  icon: mdi:led-outline
 switch.corner:
-  icon: mdi:lightbulb
+  friendly_name: Spare
+  icon: mdi:skull
 sensor.trafikverket_kungsbacka_air_temperature:
   friendly_name: Kungsbacka
 sensor.trafikverket_kungsbacka_road_temperature:

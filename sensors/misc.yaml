@@ -18,5 +18,14 @@
         friendly_name: Dieselpris
         unit_of_measurement: 'kr/L'
         value_template: "{{ states.input_number.diesel.state }}"
+
+
+
+      # emil_presence:
+      #   friendly_name: Emil
+      #   value_template: "{{ states.sensor.presence_emil.state }}"
+      #   icon_template: >
+      #     {% if is_state('states.sensor.presence_emil','Home') %}
+
 # Unavailable sensors
 # {% for state in states.sensor %}{%- if state.state == 'unavailable' %}{{ state.name }} is {{state.state}}{% endif %} {% endfor %}
