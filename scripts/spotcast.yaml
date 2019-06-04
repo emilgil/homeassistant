@@ -1,0 +1,32 @@
+spotcast_service:
+  alias: Play music
+  sequence:
+    - service: spotcast.start
+      data:
+        device_name: "Kitchen"
+#        uri: “spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs”
+        uri: "spotify:user:spotify:playlist:37i9dQZF1DXcfM2FklqnAI"
+#        uri: "spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM"
+#        uri: "spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r"
+
+spotify_next_song:
+  alias: next song
+  sequence:
+    - service: media_player.media_next_track
+      data:
+        entity_id: media_player.spotify
+
+spotify_shuffle:
+  alias: shuffle
+  sequence:
+    - service: media_player.shuffle_set
+      data:
+        entity_id: media_player.spotify
+        shuffle: true
+
+spotify_stop:
+  alias: Stop spotify
+  sequence:
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.spotify

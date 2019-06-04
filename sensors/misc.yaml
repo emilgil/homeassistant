@@ -19,7 +19,11 @@
         unit_of_measurement: 'kr/L'
         value_template: "{{ states.input_number.diesel.state }}"
 
-
+  - platform: nordpool
+    currency: 'SEK'
+    region: 'SE3'
+    name: "Elspot kWh"
+  #  offset: '02:00:00'
 
       # emil_presence:
       #   friendly_name: Emil

@@ -14,8 +14,8 @@
     - switch.docker_influxdb
     - switch.docker_jackett
     - switch.docker_kodi
-    - switch.docker_mariadb_adminer_1
-    - switch.docker_mariadb_db_1
+    - switch.docker_adminer
+    - switch.docker_mariadb
     - switch.docker_mosquitto
     - switch.docker_openvpn
     - switch.docker_organizr
@@ -32,14 +32,14 @@
     - switch.docker_watchtower
     - switch.docker_webnut
 
-  docker_badges:
-    entities:
-    - group.docker_containers
-    - switch.docker_appdaemon
-    - switch.docker_deconz
-    - switch.docker_deconzconfig
-    - switch.docker_duckdns
-    - switch.docker_gammu
+  # docker_badges:
+  #   entities:
+  #   - group.docker_containers
+  #   - switch.docker_appdaemon
+  #   - switch.docker_deconz
+  #   - switch.docker_deconzconfig
+  #   - switch.docker_duckdns
+  #   - switch.docker_gammu
 
 # Generate list of containers in dev-template
 # {% for state in states.switch -%}

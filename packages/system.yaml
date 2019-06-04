@@ -1,0 +1,11 @@
+sensor:
+  - platform: template
+    sensors:
+        system_cckitchen:
+          friendly_name: 'CC Audio'
+          entity_id: "device_tracker.cckitchen"
+          value_template: "{{ 'Online' if is_state('device_tracker.cckitchen', 'home') else 'Offline' }}"
+        system_pingvin:
+          friendly_name: 'Emils dator'
+          entity_id: "device_tracker.pingvin"
+          value_template: "{{ 'Online' if is_state('device_tracker.pingvin', 'home') else 'Offline' }}"

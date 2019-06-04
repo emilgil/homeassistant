@@ -1,36 +1,15 @@
-  - alias: 'Keep Chromecasts awake'
+  - alias: 'Play music'
     initial_state: True
-    hide_entity: false
     trigger:
-      platform: time
-      minutes: '/10'
-      seconds: 0
-    condition:
-    - condition: template
-      value_template: '{{ states.mediaplayer.kitchen_speaker.state != playing }}'
-#      value_template: '{{ not is_state("states.mediaplayer.kitchen_speaker.state","playing")}}'
+      platform: event
+      event_type: deconz_event
+      event_data:
+        entity_id: spotify_remote_control
+        event: 5002
     action:
-    - entity_id: media_player.kitchen_speaker
-      service: media_player.turn_on
-
-  # - alias: 'Spotify playlist'
-  #   sequence:
-  #     - service: media_player.turn_on
-  #       entity_id: media_player.kitchen_speaker
-  #     - service: media_player.volume_set
-  #       data:
-  #         entity_id: media_player.spotify
-  #         volume_level: '0.50'
-  #     - service: media_player.select_source
-  #       data:
-  #         entity_id: media_player.spotify
-  #         source: media_player.kitchen_speaker
-  #     - service: media_player.play_media
-  #       data:
-  #         entity_id: media_player.spotify
-  #         media_content_type: playlist
-  #         media_content_id: spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs #Springsteen
-
+      service: script.turn_on
+      data:
+        entity_id: spotcast_service
 
 # spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs #Springsteen
 # spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM #Tom Petty
@@ -38,3 +17,5 @@
 # spotify:user:spotify:playlist:37i9dQZF1DZ06evO0uJWHS #Dire Straits
 # spotify:user:spotify:playlist:37i9dQZF1DX004b4qI4ebS #Winnerbäck
 # spotify:user:spotify:playlist:37i9dQZF1DWSNC7AjZWNry #Queen
+# spotify:user:zarkov:playlist:2FtKpbezCO64iFg0nOlCDK #Benny Andersson Piano
+# spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r #Keith Jarrett Köln

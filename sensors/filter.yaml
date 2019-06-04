@@ -1,0 +1,7 @@
+  - platform: filter
+    name: "Utomhustemperatur"
+    entity_id: sensor.temperature_outdoor
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 5

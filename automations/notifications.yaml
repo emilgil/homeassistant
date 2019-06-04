@@ -60,3 +60,38 @@
         data:
           message: "Version {{ states.updater.updater.state }} \xE4r nu tillg\xE4nglig"
           title: "Ny version tillg\xE4nglig"
+
+  - alias: 'Notify offline sensor'
+    id: '022'
+    trigger:
+      - platform: state
+        entity_id:
+          - light.framsidan
+          - light.hornet
+          - light.olles_fonster
+          - light.soffan
+          - light.tv
+        to: 'unavailable'
+        for:
+          seconds: 60
+    action:
+      - service: notify.pushbullet
+        data:
+          message: "Light offline"
+          title: "{{trigger.to_state.attributes.friendly_name}}"
+
+
+  - alias: 'Notify offline sensor'
+    id: '019'
+    trigger:
+      - platform: state
+        entity_id:
+          - sensor.temperature_outdoor
+        to: 'Unavailable'
+        for:
+          seconds: 60
+    action:
+      - service: notify.pushbullet
+        data:
+          message: "Sensor offline"
+          title: "{{trigger.to_state.attributes.friendly_name}} {{ states.sensor.temperature_outdoor.name}}"

@@ -24,17 +24,17 @@
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
-        arg: /media/hanna2tb
+        arg: /media/8tb
       - type: disk_use_percent
-        arg: /media/emil2tb
+        arg: /media/timemachine
       - type: disk_use_percent
         arg: /media/backup4tb
       - type: disk_use_percent
         arg: /media/4tb
       - type: disk_free
-        arg: /media/hanna2tb
+        arg: /media/8tb
       - type: disk_free
-        arg: /media/emil2tb
+        arg: /media/timemachine
       - type: disk_free
         arg: /media/backup4tb
       - type: disk_free
@@ -51,21 +51,10 @@
   - platform: pi_hole
     host: 192.168.1.21
 
-  - platform: speedtest
-    server_id: 6062 #https://www.speedtestserver.com/
-    hour:
-      - 0
-      - 6
-      - 12
-      - 18
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-
-  # - platform: unifi
-  #   name: Unifi
-  #   region: default
-  #   username: !secret unifi_user
-  #   password: !secret unifi_password
-  #   url: https://192.168.1.21:8443
+  - platform: snmp
+    name: 'Router uptime'
+    host: 192.168.1.1
+    baseoid: 1.3.6.1.2.1.1.3.0
+    accept_errors: true
+    unit_of_measurement: 'days'
+    value_template: '{{((value | int) / 8640000) | int}}'

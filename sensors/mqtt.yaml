@@ -1,0 +1,10 @@
+  - platform: mqtt
+    name: "GarageTemp"
+    state_topic: "zigbee2mqtt/0x00158d0001b92306"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "GarageFukt"
+    state_topic: "zigbee2mqtt/0x00158d0001b92306"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.humidity }}"

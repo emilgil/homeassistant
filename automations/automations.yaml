@@ -60,7 +60,7 @@
       - service: notify.pushbullet
         data:
           title: "Button pressed"
-          message: "Playing SR P1 in kitchen {{states.sensor.time.state}}"
+          message: "Playing SR P2 in kitchen {{states.sensor.time.state}}"
       - service: media_player.play_media
         data:
           entity_id: media_player.kitchen

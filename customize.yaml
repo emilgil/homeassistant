@@ -111,3 +111,4 @@ sensor.disk_use_percent_mediahanna2tb:
   unit_of_measurement: '%'
 device_tracker.20dfb99efdd5:
   friendly_name: 'Google Home mini '
+device_tracker.44d9e7f29c31: {}

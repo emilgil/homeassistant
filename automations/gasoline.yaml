@@ -1,5 +1,5 @@
   - alias: 'Bensinpris'
-    initial_state: True
+#    initial_state: True
     trigger:
       platform: numeric_state
       entity_id: sensor.st1_bensin
@@ -11,7 +11,7 @@
         value: "{{ states.sensor.st1_bensin.state }}"
 
   - alias: 'Dieselpris'
-    initial_state: True
+#    initial_state: True
     trigger:
       platform: numeric_state
       entity_id: sensor.st1_diesel

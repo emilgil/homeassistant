@@ -19,18 +19,18 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-  themes:
-    green_badge:
-      label-badge-red: green
-      label-badge-border-color: lightgrey
-      label-badge-background-color: white
-      label-badge-text-color: green
-
-    red_badge:
-     label-badge-red: grey
-     label-badge-border-color: lightgrey
-     label-badge-background-color: white
-     label-badge-text-color: red
+  # themes:
+  #   green_badge:
+  #     label-badge-red: green
+  #     label-badge-border-color: lightgrey
+  #     label-badge-background-color: white
+  #     label-badge-text-color: green
+  #
+  #   red_badge:
+  #    label-badge-red: grey
+  #    label-badge-border-color: lightgrey
+  #    label-badge-background-color: white
+  #    label-badge-text-color: red
 
 # Enables configuration UI
 config:
@@ -68,6 +68,8 @@ discovery:
 # Enables support for tracking state changes over time
 history:
 
+system_health:
+
 # View all events in a logbook
 logbook:
   exclude:
@@ -77,11 +79,11 @@ logbook:
 
 logger:
   default: error
-  logs:
-  #  homeassistant.components.media_player: debug
-  #  homeassistant.components.sensor.scrape: debug
-    homeassistant.components.lights: debug
-    homeassistant.components.automation: debug
+#  logs:
+#    homeassistant.components.media_player: debug
+ #   homeassistant.components.deconz: debug
+  #  custom_components.spotcast: debug
+#    homeassistant.components.automation: debug
  #   homeassistant.components.device_tracker: debug
 
 # Enables a map showing the location of tracked devices
@@ -239,6 +241,10 @@ cast:
   - host: 192.168.1.152 #Köket 957d765467e46c4543d891667c0ce02
   - host: 192.168.1.66  #Stereo 602724f8c56962aa354e80f90faf46c4
 
+spotcast:
+  username: !secret spotify_username
+  password: !secret spotify_password
+
 media_player:
   - platform: spotify
     client_id: !secret spotify_id
@@ -264,3 +270,12 @@ light:
 # 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.livingroom, old_state=None, new_state=<state media_player.livingroom=unavailable; friendly_name=Chromecast stereo, supported_features=21437 @ 2018-07-31T22:35:45.916529+02:00>>
 # 2018-07-31 22:35:45 INFO (SyncWorker_1) [pychromecast] Querying device status
 # 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
+
+speedtestdotnet:
+  server_id: 6062 #https://www.speedtestserver.com/
+  scan_interval:
+    hours: 6
+  monitored_conditions:
+    - ping
+    - download
+    - upload
