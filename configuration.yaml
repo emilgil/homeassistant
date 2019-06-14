@@ -81,13 +81,13 @@ logger:
   default: error
 #  logs:
 #    homeassistant.components.media_player: debug
- #   homeassistant.components.deconz: debug
+  #  homeassistant.components.deconz: debug
   #  custom_components.spotcast: debug
 #    homeassistant.components.automation: debug
  #   homeassistant.components.device_tracker: debug
 
 # Enables a map showing the location of tracked devices
-map:
+#map:
 
 # Track the sun
 sun:

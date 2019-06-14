@@ -3,11 +3,28 @@ spotcast_service:
   sequence:
     - service: spotcast.start
       data:
-        device_name: "Kitchen"
-#        uri: “spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs”
-        uri: "spotify:user:spotify:playlist:37i9dQZF1DXcfM2FklqnAI"
-#        uri: "spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM"
-#        uri: "spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r"
+        device_name: "Koksradion"
+        uri: "spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r"
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.koksradion
+        volume_level: 0.2
+    - delay:
+      seconds: 2
+    - service: notify.pushbullet
+      data:
+        title: "Spotcast playing"
+        message: "{{states.media_player.spotify.attributes.media_artist}} - {{states.media_player.spotify.attributes.media_album_name}}"
+
+# spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs #Springsteen
+# spotify:user:brucespringsteenmusic:playlist:7ajpwYdjBOspHw09kUOyqs
+# spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM #Tom Petty
+# spotify:user:spotify:playlist:37i9dQZF1DX74DnfGTwugU #Guns N Roses
+# spotify:user:spotify:playlist:37i9dQZF1DZ06evO0uJWHS #Dire Straits
+# spotify:user:spotify:playlist:37i9dQZF1DX004b4qI4ebS #Winnerbäck
+# spotify:user:spotify:playlist:37i9dQZF1DWSNC7AjZWNry #Queen
+# spotify:user:zarkov:playlist:2FtKpbezCO64iFg0nOlCDK #Benny Andersson Piano
+# spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r #Keith Jarrett Köln
 
 spotify_next_song:
   alias: next song

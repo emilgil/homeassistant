@@ -1,17 +1,53 @@
   - alias: 'Play music'
     initial_state: True
     trigger:
-      platform: event
-      event_type: deconz_event
-      event_data:
-        entity_id: spotify_remote_control
-        event: 5002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 1002
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: rund_knapp
+          event: 1002
     action:
-      service: script.turn_on
-      data:
-        entity_id: spotcast_service
+      - service: script.turn_on
+        data:
+          entity_id: script.spotcast_service
+      # - service: notify.pushbullet
+      #   data:
+      #     title: "Button pressed"
+      #     message: "Spotcast playing {{states.media_player.spotify.attributes.media_artist}}"
+
+  - alias: 'Next song'
+    initial_state: True
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 4002
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.spotify_next_song
+
+  - alias: 'Shuffle songs'
+    initial_state: True
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 5002
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.spotify_shuffle
 
 # spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs #Springsteen
+# spotify:user:brucespringsteenmusic:playlist:7ajpwYdjBOspHw09kUOyqs
 # spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM #Tom Petty
 # spotify:user:spotify:playlist:37i9dQZF1DX74DnfGTwugU #Guns N Roses
 # spotify:user:spotify:playlist:37i9dQZF1DZ06evO0uJWHS #Dire Straits
