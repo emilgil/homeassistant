@@ -1,5 +1,5 @@
   - alias: 'Play music'
-    initial_state: True
+    initial_state: "True"
     trigger:
       - platform: event
         event_type: deconz_event
@@ -21,7 +21,7 @@
       #     message: "Spotcast playing {{states.media_player.spotify.attributes.media_artist}}"
 
   - alias: 'Next song'
-    initial_state: True
+    initial_state: "True"
     trigger:
       - platform: event
         event_type: deconz_event
@@ -34,7 +34,7 @@
           entity_id: script.spotify_next_song
 
   - alias: 'Shuffle songs'
-    initial_state: True
+    initial_state: "True"
     trigger:
       - platform: event
         event_type: deconz_event
@@ -55,3 +55,31 @@
 # spotify:user:spotify:playlist:37i9dQZF1DWSNC7AjZWNry #Queen
 # spotify:user:zarkov:playlist:2FtKpbezCO64iFg0nOlCDK #Benny Andersson Piano
 # spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r #Keith Jarrett Köln
+
+
+  - alias: next artist
+    initial_state: "True"
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 3002
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.playlist
+          option: >
+            {% if is_state("input_select.playlist", "Springsteen") %}
+              Dire Straits
+            {% elif is_state("input_select.playlist", "Dire Straits") %}
+              Tom Petty
+            {% elif is_state("input_select.playlist", "Tom Petty") %}
+              Guns N Roses
+            {% elif is_state("input_select.playlist", "Guns N Roses") %}
+              Winnerbäck
+            {% elif is_state("input_select.playlist", "Winnerbäck") %}
+              Queen
+            {% elif is_state("input_select.playlist", "Queen") %}
+              Springsteen
+            {% endif %}

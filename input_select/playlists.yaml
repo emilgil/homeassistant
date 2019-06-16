@@ -1,11 +1,11 @@
 playlist:
-  name: 'Välj radiostation'
-    options:
-      - 'Springsteen'
-      - 'Dire Straits'
-      - 'Tom Petty'
-      - 'Guns N Roses'
-      - 'Winnerbäck'
-      - 'Queen'
-    initial: 'SR P1'
-    icon: mdi:radio
+  name: 'Välj artist'
+  options:
+    - 'Springsteen'
+    - 'Dire Straits'
+    - 'Tom Petty'
+    - 'Guns N Roses'
+    - 'Winnerbäck'
+    - 'Queen'
+  initial: 'Springsteen'
+  icon: mdi:radio

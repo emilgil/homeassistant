@@ -8,7 +8,8 @@ homeassistant:
   elevation: 0
   # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # Pick yours from here:
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
   # Customization file
   whitelist_external_dirs:
@@ -116,34 +117,35 @@ automation: !include_dir_merge_list automations/
 #script: !include scripts.yaml
 script: !include_dir_merge_named scripts
 python_script:
-#input_number: !include_dir_merge_named input_number
-input_number:
-  bensin:
-    name: Bensinpris
-    min: 10
-    max: 25
-    step: 0.01
-    mode: box
-    unit_of_measurement: 'kr/L'
-  diesel:
-    name: Dieselpris
-    min: 10
-    max: 25
-    step: 0.01
-    mode: box
-    unit_of_measurement: 'kr/L'
-  boden_alarm_level:
-    name: 'Larmgräns boden'
-    min: 0
-    max: 25
-    step: 0.1
-    unit_of_measurement: '°C'
-  test_slider:
-    name: test_slider
-    min: 0
-    max: 25
-    step: 1
-    unit_of_measurement: '°C'
+input_number: !include_dir_merge_named input_number
+input_select: !include_dir_merge_named input_select
+#input_number:
+  # bensin:
+  #   name: Bensinpris
+  #   min: 10
+  #   max: 25
+  #   step: 0.01
+  #   mode: box
+  #   unit_of_measurement: 'kr/L'
+  # diesel:
+  #   name: Dieselpris
+  #   min: 10
+  #   max: 25
+  #   step: 0.01
+  #   mode: box
+  #   unit_of_measurement: 'kr/L'
+  # boden_alarm_level:
+  #   name: 'Larmgräns boden'
+  #   min: 0
+  #   max: 25
+  #   step: 0.1
+  #   unit_of_measurement: '°C'
+  # test_slider:
+  #   name: test_slider
+  #   min: 0
+  #   max: 25
+  #   step: 1
+  #   unit_of_measurement: '°C'
 
 sensor: !include_dir_merge_list sensors/
 
@@ -263,13 +265,6 @@ light:
   - platform: switch
     name: Reserv
     entity_id: switch.spare
-
-# 2018-07-31 22:35:45 DEBUG (SyncWorker_9) [homeassistant.components.media_player.cast] Discovered chromecast ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
-# 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.kitchen, old_state=None, new_state=<state media_player.kitchen=unavailable; friendly_name=Chromecast kök, supported_features=21437 @ 2018-07-31T22:35:45.906224+02:00>>
-# 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.152', port=8009, uuid='957d7654-67e4-6c45-43d8-91667c0ce02d', model_name='Chromecast Audio', friendly_name='Köket')
-# 2018-07-31 22:35:45 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=media_player.livingroom, old_state=None, new_state=<state media_player.livingroom=unavailable; friendly_name=Chromecast stereo, supported_features=21437 @ 2018-07-31T22:35:45.916529+02:00>>
-# 2018-07-31 22:35:45 INFO (SyncWorker_1) [pychromecast] Querying device status
-# 2018-07-31 22:35:45 DEBUG (MainThread) [homeassistant.components.media_player.cast] Connecting to cast device ChromecastInfo(host='192.168.1.66', port=8009, uuid='602724f8-c569-62aa-354e-80f90faf46c4', model_name='Chromecast Audio', friendly_name='Vardagsrummet')
 
 speedtestdotnet:
   server_id: 6062 #https://www.speedtestserver.com/

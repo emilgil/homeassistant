@@ -2,15 +2,23 @@ spotcast_service:
   alias: Play music
   sequence:
     - service: spotcast.start
-      data:
+      data_template:
         device_name: "Koksradion"
-        uri: "spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r"
+#        uri: "spotify:user:zarkov:playlist:1FQjoMYhWZN4ZAP0HxiJ9r"
+        uri: >
+          {% if is_state("input_select.playlist", "Springsteen") %} spotify:user:spotify:playlist:37i9dQZF1DX9qkL85stcHs
+          {% elif is_state("input_select.playlist", "Tom Petty") %} spotify:user:spotify:playlist:37i9dQZF1DWUlZhYdX0uqM
+          {% elif is_state("input_select.playlist", "Guns N Roses") %} spotify:user:spotify:playlist:37i9dQZF1DX74DnfGTwugU
+          {% elif is_state("input_select.playlist", "Dire Straits") %} spotify:user:spotify:playlist:37i9dQZF1DZ06evO0uJWHS
+          {% elif is_state("input_select.playlist", "Winnerbäck") %} spotify:user:spotify:playlist:37i9dQZF1DX004b4qI4ebS
+          {% elif is_state("input_select.playlist", "Queen") %} spotify:user:spotify:playlist:37i9dQZF1DWSNC7AjZWNry
+          {% endif %}
     - service: media_player.volume_set
       data:
         entity_id: media_player.koksradion
         volume_level: 0.2
     - delay:
-      seconds: 2
+        seconds: 2
     - service: notify.pushbullet
       data:
         title: "Spotcast playing"
