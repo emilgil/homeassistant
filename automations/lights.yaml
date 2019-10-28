@@ -61,6 +61,11 @@
         entity_id: light.soffan
         brightness_pct: 55
         transition: 10
+    - service: light.turn_on
+      data:
+        entity_id: light.olles_fonster
+        brightness_pct: 55
+        transition: 10
 
 
   - alias: 'Släck lampor kl 24'
@@ -95,11 +100,11 @@
         entity_id: light.framsidan
         brightness_pct: 50
         transition: 30
-    - service: light.turn_on
+    - service: light.turn_off
       data:
         entity_id: light.olles_fonster
-        brightness_pct: 15
-        transition: 30
+#        brightness_pct: 15
+#        transition: 30
 
 
   - alias: 'Nattsuddare'

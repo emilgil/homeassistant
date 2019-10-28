@@ -19,6 +19,12 @@ spotcast_service:
         volume_level: 0.2
     - delay:
         seconds: 2
+    - service: media_player.shuffle_set
+      data:
+        entity_id: media_player.spotify
+        shuffle: true
+    - delay:
+        seconds: 2
     - service: notify.pushbullet
       data:
         title: "Spotcast playing"
@@ -45,9 +51,12 @@ spotify_shuffle:
   alias: shuffle
   sequence:
     - service: media_player.shuffle_set
-      data:
+      data_template:
         entity_id: media_player.spotify
-        shuffle: true
+        shuffle: >
+          {% if is_state("states.media_player.spotify.attributes.shuffle", False) %} True
+          {% else %} False
+          {% endif %}
 
 spotify_stop:
   alias: Stop spotify

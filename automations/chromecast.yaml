@@ -1,3 +1,32 @@
+  - alias: 'Play radio'
+    initial_state: "True"
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 2002 #up button short press
+    action:
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.koksradion
+          media_content_id: http://sverigesradio.se/topsy/direkt/132-hi.mp3
+          media_content_type: 'audio/mp4'
+
+  - alias: 'Stop radio'
+    initial_state: "True"
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          entity_id: spotify_remote_control
+          event: 3002 #down button short press
+    action:
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.koksradion
+
+
   - alias: 'Play music'
     initial_state: "True"
     trigger:
@@ -5,12 +34,12 @@
         event_type: deconz_event
         event_data:
           entity_id: spotify_remote_control
-          event: 1002
-      - platform: event
-        event_type: deconz_event
-        event_data:
-          entity_id: rund_knapp
-          event: 1002
+          event: 1002 #middle button short press
+      # - platform: event
+      #   event_type: deconz_event
+      #   event_data:
+      #     entity_id: rund_knapp
+      #     event: 1002
     action:
       - service: script.turn_on
         data:
@@ -27,7 +56,7 @@
         event_type: deconz_event
         event_data:
           entity_id: spotify_remote_control
-          event: 4002
+          event: 4002 #left button short press
     action:
       - service: script.turn_on
         data:
@@ -40,7 +69,7 @@
         event_type: deconz_event
         event_data:
           entity_id: spotify_remote_control
-          event: 5002
+          event: 4003 #left button long press
     action:
       - service: script.turn_on
         data:
@@ -64,7 +93,7 @@
         event_type: deconz_event
         event_data:
           entity_id: spotify_remote_control
-          event: 3002
+          event: 5002 #right button short press
     action:
       - service: input_select.select_option
         data_template:
@@ -83,3 +112,6 @@
             {% elif is_state("input_select.playlist", "Queen") %}
               Springsteen
             {% endif %}
+      - service: script.turn_on
+        data:
+          entity_id: script.spotcast_service

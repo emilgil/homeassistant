@@ -1,0 +1,20 @@
+  - platform: nordpool
+    region: "SE3"
+    currency: "SEK"
+#    precision: 3
+#    price_type: "mwh"
+#    friendly_name: "Nordpool"
+  - platform: template
+    sensors:
+      elspot_min:
+        friendly_name: Nordpool minimum
+        unit_of_measurement: 'öre'
+        value_template: "{{ states.sensor.elspot_kwhse3sek310.attributes.min }}"
+      elspot_max:
+        friendly_name: Nordpool maximum
+        unit_of_measurement: 'öre'
+        value_template: "{{ states.sensor.elspot_kwhse3sek310.attributes.max }}"
+      elspot_average:
+        friendly_name: Nordpool genomsnitt
+        unit_of_measurement: 'öre'
+        value_template: "{{ states.sensor.elspot_kwhse3sek310.attributes.average }}"

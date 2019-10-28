@@ -31,6 +31,12 @@
         arg: /media/backup4tb
       - type: disk_use_percent
         arg: /media/4tb
+      - type: disk_use_percent
+        arg: /media/crypt
+      - type: disk_use_percent
+        arg: /media/root
+      - type: disk_use_percent
+        arg: /media/temp
       - type: disk_free
         arg: /media/8tb
       - type: disk_free
@@ -39,6 +45,12 @@
         arg: /media/backup4tb
       - type: disk_free
         arg: /media/4tb
+      - type: disk_free
+        arg: /media/crypt
+      - type: disk_free
+        arg: /media/root
+      - type: disk_free
+        arg: /media/temp
       - type: memory_use_percent
       - type: load_1m
       - type: load_15m

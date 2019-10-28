@@ -16,6 +16,8 @@ homeassistant:
     - '/config'
   customize: !include customize.yaml
   customize_glob: !include customglob.yaml
+    # "*.*":
+    #     custom_ui_state_card: state-card-custom-ui
   packages: !include_dir_named packages
 
 # Enables the frontend
@@ -37,7 +39,7 @@ frontend:
 config:
 
 customizer:
-  custom_ui: local
+  custom_ui: hosted #local
 
 http:
   # Secrets are defined in the file secrets.yaml
@@ -71,6 +73,7 @@ history:
 
 system_health:
 
+person:
 # View all events in a logbook
 logbook:
   exclude:
@@ -80,10 +83,12 @@ logbook:
 
 logger:
   default: error
-#  logs:
+  logs:
+  #   pydeconz: debug
+  #  homeassistant.components.zwave: debug
 #    homeassistant.components.media_player: debug
   #  homeassistant.components.deconz: debug
-  #  custom_components.spotcast: debug
+    custom_components.nordpool: debug
 #    homeassistant.components.automation: debug
  #   homeassistant.components.device_tracker: debug
 
@@ -175,15 +180,15 @@ device_tracker:
     exclude:
       - 192.168.1.21
 #
-  - platform: unifi
-    host: 192.168.1.21
-    port: 8443
-    verify_ssl: false
-    username: !secret unifi_user
-    password: !secret unifi_password
-    detection_time: 300
-    monitored_conditions:
-      - _last_seen_by_uap
+  # - platform: unifi
+  #   host: 192.168.1.21
+  #   port: 8443
+  #   verify_ssl: false
+  #   username: !secret unifi_user
+  #   password: !secret unifi_password
+  #   detection_time: 300
+  #   monitored_conditions:
+  #     - _last_seen_by_uap
 #
   - platform: snmp
     host: 192.168.1.1
@@ -198,14 +203,14 @@ owntracks:
   max_gps_accuracy: 200
 
 switch:
-  platform: hadockermon
-  host: 192.168.1.21
-  port: 8126
-  stats: true
-  prefix: docker_
-  exclude:
-    - ha-dockermon
-    - home-assistant
+  # platform: hadockermon
+  # host: 192.168.1.21
+  # port: 8126
+  # stats: true
+  # prefix: docker_
+  # exclude:
+  #   - ha-dockermon
+  #   - home-assistant
 
 # -------------------------------------------------------------------
 # *** NOTIFICATIONS ***
@@ -240,20 +245,28 @@ mqtt:
 
 cast:
   media_player:
-  - host: 192.168.1.152 #Köket 957d765467e46c4543d891667c0ce02
-  - host: 192.168.1.66  #Stereo 602724f8c56962aa354e80f90faf46c4
+    - host: 192.168.1.152  # Köket 957d765467e46c4543d891667c0ce02
+    - host: 192.168.1.66   # Stereo 602724f8c56962aa354e80f90faf46c4
+#    - host: 192.168.1.171  # Google Home mini
 
 spotcast:
   username: !secret spotify_username
   password: !secret spotify_password
 
 media_player:
+#  - platform: plex
   - platform: spotify
     client_id: !secret spotify_id
     client_secret: !secret spotify_secret
 #     aliases:
 #       957d765467e46c4543d891667c0ce02d: 'Kitchen'
 #       602724f8c56962aa354e80f90faf46c4: 'Livingroom'
+plex:
+  host: 192.168.1.21
+  token: fv7MM588XasphCLKFAW7
+
+pi_hole:
+  host: 192.168.1.21
 
 light:
   - platform: switch
@@ -267,10 +280,14 @@ light:
     entity_id: switch.spare
 
 speedtestdotnet:
-  server_id: 6062 #https://www.speedtestserver.com/
+  server_id: 6062  # https://www.speedtestserver.com/
   scan_interval:
     hours: 6
   monitored_conditions:
     - ping
     - download
     - upload
+
+# googlehome:
+#   devices:
+#     - host: 192.168.1.171

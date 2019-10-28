@@ -95,3 +95,13 @@
         data:
           message: "Sensor offline"
           title: "{{trigger.to_state.attributes.friendly_name}} {{ states.sensor.temperature_outdoor.name}}"
+
+#  - alias: 'Flight entry notification'
+#    id: '020'
+#    trigger:
+#      platform: event
+#      event_type: opensky_entry
+#    action:
+#      service: notify.pushbullet
+#      data_template:
+#        message : 'Flight {{ trigger.event.data.callsign }} @ altitude {{ trigger.event.data.altitude }} m  '

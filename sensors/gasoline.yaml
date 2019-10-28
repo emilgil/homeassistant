@@ -33,3 +33,9 @@
 #       {% else %}
 #         {{ value }}
 #       {% endif %}
+  # - platform: scrape
+  #   resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+  #   name: Electricity price
+  #   select: ".elspot-area-price"
+  #   value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
+  #   unit_of_measurement: "öre/kWh"

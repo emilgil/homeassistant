@@ -18,7 +18,7 @@ input_select:
       - notset
     initial: warn
 ###################################
-##  Dynamically set the log levels without having to 
+##  Dynamically set the log levels without having to
 ##  restart HASS or edit configuration.yaml
 #- Thanks @VDRainer
 ###################################

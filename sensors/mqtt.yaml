@@ -8,3 +8,51 @@
     state_topic: "zigbee2mqtt/0x00158d0001b92306"
     unit_of_measurement: '%'
     value_template: "{{ value_json.humidity }}"
+
+  - platform: mqtt
+    name: "WLAN0 total"
+    state_topic: "garage/vnstat"
+    unit_of_measurement: 'MB'
+    value_template: "{{((value_json.interfaces[0].traffic.total.rx+value_json.interfaces[0].traffic.total.tx)/1024) | int}}"
+
+  - platform: mqtt
+    name: "WLAN0 daily"
+    state_topic: "garage/vnstat"
+    unit_of_measurement: 'MB'
+    value_template: "{{((value_json.interfaces[0].traffic.days[0].rx+value_json.interfaces[0].traffic.days[0].tx)/1024) | int}}"
+
+  - platform: mqtt
+    name: "WLAN0 monthly"
+    state_topic: "garage/vnstat"
+    unit_of_measurement: 'MB'
+    value_template: "{{((value_json.interfaces[0].traffic.months[0].rx+value_json.interfaces[0].traffic.months[0].tx)/1024) | int}}"
+
+  - platform: mqtt
+    name: "PPP0 total"
+    state_topic: "garage/vnstat/ppp0"
+    unit_of_measurement: 'KB'
+    value_template: "{{value_json.interfaces[0].traffic.total.rx+value_json.interfaces[0].traffic.total.tx}}"
+
+  - platform: mqtt
+    name: "PPP0 daily"
+    state_topic: "garage/vnstat/ppp0"
+    unit_of_measurement: 'KB'
+    value_template: "{{value_json.interfaces[0].traffic.days[0].rx+value_json.interfaces[0].traffic.days[0].tx | int}}"
+
+  - platform: mqtt
+    name: "PPP0 monthly"
+    state_topic: "garage/vnstat/ppp0"
+    unit_of_measurement: 'KB'
+    value_template: "{{value_json.interfaces[0].traffic.months[0].rx+value_json.interfaces[0].traffic.months[0].tx | int}}"
+
+  - platform: mqtt
+    name: "Bensin_mqtt"
+    state_topic: "twitter/st1sverige"
+    unit_of_measurement: "kr/L"
+    value_template: "{{ value_json.B95 }}"
+
+  - platform: mqtt
+    name: "Diesel_mqtt"
+    state_topic: "twitter/st1sverige"
+    unit_of_measurement: "kr/L"
+    value_template: "{{ value_json.Diesel }}"

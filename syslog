@@ -1,0 +1,24 @@
+Wed 2019/09/11 20:27:38: [Gammu            - 1.39.0]
+Wed 2019/09/11 20:27:38: [Connection       - "at115200"]
+Wed 2019/09/11 20:27:38: [Connection index - 0]
+Wed 2019/09/11 20:27:38: [Model type       - ""]
+Wed 2019/09/11 20:27:38: [Device           - "/dev/sms"]
+Wed 2019/09/11 20:27:38: [Running on       - Linux, kernel 4.15.0-60-generic (#67-Ubuntu SMP Thu Aug 22 16:55:30 UTC 2019)]
+Wed 2019/09/11 20:27:38: Serial device: DTR is up, RTS is up, CAR is down, CTS is down
+Wed 2019/09/11 20:27:38: Setting speed to 115200
+Wed 2019/09/11 20:27:38: [Module           - "auto"]
+Wed 2019/09/11 20:27:38: Escaping SMS mode
+Wed 2019/09/11 20:27:38: SENDING frame type 0x00/length 0x02/2
+Wed 2019/09/11 20:27:38: 1B |0D                                                          ..              
+Wed 2019/09/11 20:27:38: Sending simple AT command to wake up some devices
+Wed 2019/09/11 20:27:38: SENDING frame type 0x00/length 0x03/3
+Wed 2019/09/11 20:27:38: 41A|54T|0D                                                      AT.             
+Wed 2019/09/11 20:27:59: Enabling echo
+Wed 2019/09/11 20:27:59: SENDING frame type 0x00/length 0x05/5
+Wed 2019/09/11 20:27:59: 41A|54T|45E|311|0D                                              ATE1.           
+Wed 2019/09/11 20:28:09: Phone does not support enabled echo, it can not work with Gammu!
+Wed 2019/09/11 20:28:09: It might be caused by other program using the modem.
+Wed 2019/09/11 20:28:09: See <https://wammu.eu/docs/manual/faq/general.html#echo> for help.
+Wed 2019/09/11 20:28:09: Init:GSM_TryGetModel failed with error TIMEOUT[14]: No response in specified timeout. Probably phone not connected.
+Wed 2019/09/11 20:28:09: [Terminating]
+Wed 2019/09/11 20:28:09: [Closing]

@@ -3,13 +3,14 @@
       - 'time'
       - 'date'
 
+  - platform: spotcast
+
   - platform: template
     sensors:
-      light_level:
-        friendly_name: Framsidan
-        unit_of_measurement: '%'
-        value_template: "{{ (states.light.framsidan.attributes.brightness /2.54)|int}}"
-
+      # light_level:
+      #   friendly_name: Framsidan
+      #   unit_of_measurement: '%'
+      #   value_template: "{{ (states.light.framsidan.attributes.brightness /2.54)|int}}"
       bensinpris:
         friendly_name: Bensinpris
         unit_of_measurement: 'kr/L'
@@ -18,18 +19,6 @@
         friendly_name: Dieselpris
         unit_of_measurement: 'kr/L'
         value_template: "{{ states.input_number.diesel.state }}"
-
-  - platform: nordpool
-    currency: 'SEK'
-    region: 'SE3'
-    name: "Elspot kWh"
-  #  offset: '02:00:00'
-
-      # emil_presence:
-      #   friendly_name: Emil
-      #   value_template: "{{ states.sensor.presence_emil.state }}"
-      #   icon_template: >
-      #     {% if is_state('states.sensor.presence_emil','Home') %}
 
 # Unavailable sensors
 # {% for state in states.sensor %}{%- if state.state == 'unavailable' %}{{ state.name }} is {{state.state}}{% endif %} {% endfor %}

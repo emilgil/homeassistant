@@ -1,9 +1,9 @@
 "*.*":
   custom_ui_state_card: state-card-custom-ui
-group.automation_badges:
-  state_card_mode: badges
-group.docker_containers:
-  state_card_mode: badges
+# group.automation_badges:
+#   state_card_mode: badges
+# group.docker_containers:
+#   state_card_mode: badges
 
 sensor.humidity*:
   icon: mdi:water-percent
@@ -30,37 +30,37 @@ sensor.fibaro*:
 #       if (state == home) return 'rgb(0, 0, 0)';
 #       return 'rgb(120, 120, 0)';
 #  hidden: true
-device_tracker.*:
-  state_card_mode: badges
-  templates:
-    icon_color: >
-      if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
-    theme: >
-      if (state === 'home') return 'green_badge'; else return 'red_badge';
-
-sensor.presence*:
-  state_card_mode: badges
-  templates:
-    icon_color: >
-      if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
-    theme: >
-      if (state === 'home') return 'green_badge'; else return 'red_badge';
-
-switch.docker*:
-  templates:
-    icon_color: >
-      if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
-    theme: >
-      if (state === 'on') return 'green_badge'; else return 'red_badge';
-
-automation*:
-  state_card_mode: badges
-  templates:
-    icon_color: >
-      if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
-    theme: >
-      if (state === 'on') return 'green_badge'; else return 'red_badge';
-
+# device_tracker.*:
+#   state_card_mode: badges
+#   templates:
+#     icon_color: >
+#       if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+#     theme: >
+#       if (state === 'home') return 'green_badge'; else return 'red_badge';
+#
+# sensor.presence*:
+#   state_card_mode: badges
+#   templates:
+#     icon_color: >
+#       if (state === 'home') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+#     theme: >
+#       if (state === 'home') return 'green_badge'; else return 'red_badge';
+#
+# switch.docker*:
+#   templates:
+#     icon_color: >
+#       if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+#     theme: >
+#       if (state === 'on') return 'green_badge'; else return 'red_badge';
+#
+# automation*:
+#   state_card_mode: badges
+#   templates:
+#     icon_color: >
+#       if (state === 'on') return 'rgb(0, 230, 0)'; else return 'rgb(255, 0, 0)';
+#     theme: >
+#       if (state === 'on') return 'green_badge'; else return 'red_badge';
+#
 sensor.12h*:
   templates:
     icon_color: >
@@ -113,8 +113,17 @@ sensor.disk_use_percent*:
     icon_color: >
       if (state < 60) return 'rgb(50, 150, 50)';
       if (state < 70) return 'rgb(50, 200, 50)';
-      if (state < 80) return 'rgb(150, 255, 50)';
-      if (state < 85) return 'rgb(255, 200, 0)';
+      if (state < 80) return 'rgb(255, 200, 0)';
+      if (state < 85) return 'rgb(255, 150, 50)';
       if (state < 90) return 'rgb(255, 100, 0)';
       if (state < 95) return 'rgb(255, 0, 0)';
       return 'rgb(200, 0, 0)';
+
+binary_sensor.*:
+  templates:
+    icon_color: >
+      if (state == "on") {
+        return 'rgb(255, 22, 38)';
+      } else {
+        return 'rgb(22, 200, 38)';
+      }
