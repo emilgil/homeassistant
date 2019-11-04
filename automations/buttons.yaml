@@ -1,0 +1,13 @@
+  - alias: 'Kojan'
+    initial_state: True
+    hide_entity: false
+    trigger:
+      platform: event
+      event_type: deconz_event
+      event_data:
+        entity_id: button_1
+        event: 1000
+    action:
+      - service: switch.toggle
+        data:
+          entity_id: switch.kojan

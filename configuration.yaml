@@ -43,7 +43,7 @@ customizer:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+#  api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 #  base_url: http://gildebrandhome.duckdns.org/
   base_url: http://192.168.1.21:8123
@@ -83,12 +83,12 @@ logbook:
 
 logger:
   default: error
-  logs:
+  #logs:
   #   pydeconz: debug
   #  homeassistant.components.zwave: debug
 #    homeassistant.components.media_player: debug
   #  homeassistant.components.deconz: debug
-    custom_components.nordpool: debug
+  #  custom_components.nordpool: debug
 #    homeassistant.components.automation: debug
  #   homeassistant.components.device_tracker: debug
 
@@ -190,10 +190,10 @@ device_tracker:
   #   monitored_conditions:
   #     - _last_seen_by_uap
 #
-  - platform: snmp
-    host: 192.168.1.1
-    community: !secret snmp_community
-    baseoid: !secret snmp_baseoid
+#  - platform: snmp
+#    host: 192.168.1.1
+#    community: !secret snmp_community
+#    baseoid: !secret snmp_baseoid
 #
   - platform: mqtt
     devices:
@@ -245,8 +245,8 @@ mqtt:
 
 cast:
   media_player:
-    - host: 192.168.1.152  # Köket 957d765467e46c4543d891667c0ce02
-    - host: 192.168.1.66   # Stereo 602724f8c56962aa354e80f90faf46c4
+    - host: 192.168.1.36  # Köket 957d765467e46c4543d891667c0ce02
+    - host: 192.168.1.35   # Stereo 602724f8c56962aa354e80f90faf46c4
 #    - host: 192.168.1.171  # Google Home mini
 
 spotcast:

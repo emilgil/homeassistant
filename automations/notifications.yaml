@@ -70,7 +70,7 @@
           - light.hornet
           - light.olles_fonster
           - light.soffan
-          - light.tv
+#          - light.tv
         to: 'unavailable'
         for:
           seconds: 60

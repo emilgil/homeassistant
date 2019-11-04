@@ -1,0 +1,22 @@
+  - alias: 'Electricity Savings'
+    initial_state: "True"
+    trigger:
+        platform: time
+        at: "23:59:59"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.sparsnas_consumption_yesterday
+          value: "{{ states('sensor.kwh_today')|float }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.sparsnas_cost_yesterday
+          value: "{{ states('sensor.cost_today')|float }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.sparsnas_save_yesterday
+          value: "{{ states('sensor.cost_savings_today')|float }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.sparsnas_save_aggregated
+          value: "{{ (states('input_number.sparsnas_save_aggregated')|float) + (states('sensor.cost_savings_today')|float) }}"

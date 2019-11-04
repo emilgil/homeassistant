@@ -35,19 +35,10 @@
         event_data:
           entity_id: spotify_remote_control
           event: 1002 #middle button short press
-      # - platform: event
-      #   event_type: deconz_event
-      #   event_data:
-      #     entity_id: rund_knapp
-      #     event: 1002
     action:
       - service: script.turn_on
         data:
           entity_id: script.spotcast_service
-      # - service: notify.pushbullet
-      #   data:
-      #     title: "Button pressed"
-      #     message: "Spotcast playing {{states.media_player.spotify.attributes.media_artist}}"
 
   - alias: 'Next song'
     initial_state: "True"
@@ -106,8 +97,8 @@
             {% elif is_state("input_select.playlist", "Tom Petty") %}
               Guns N Roses
             {% elif is_state("input_select.playlist", "Guns N Roses") %}
-              Winnerbäck
-            {% elif is_state("input_select.playlist", "Winnerbäck") %}
+              Benny Andersson
+            {% elif is_state("input_select.playlist", "Benny Andersson") %}
               Queen
             {% elif is_state("input_select.playlist", "Queen") %}
               Springsteen

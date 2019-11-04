@@ -116,7 +116,7 @@ binary_sensor.frontdoor:
   device_class: door
 binary_sensor.back_door:
   device_class: door
-binary_sensor.kitchen:
+binary_sensor.kitchen_window:
   device_class: window
 binary_sensor.bedroom:
   device_class: window

@@ -17,4 +17,20 @@
       elspot_average:
         friendly_name: Nordpool genomsnitt
         unit_of_measurement: 'öre'
-        value_template: "{{ states.sensor.elspot_kwhse3sek310.attributes.average }}"
+        value_template: "{{ state_attr('sensor.elspot_kwhse3sek310','average') }}"
+# {{ state_attr('sensor.elspot_kwhse3sek310','average') * (states('sensor.kwh_today')|float) }}
+      cost_today:
+        friendly_name: "Cost today"
+        unit_of_measurement: "kr"
+        value_template: >-
+          {{ (((states('sensor.kwh_today')|float) * 0.44))|round(2) }}
+      cost_savings_today:
+        friendly_name: "Money saved today"
+        unit_of_measurement: "kr"
+        value_template: >-
+          {{ ((states('sensor.kwh_today')|float) *(states('sensor.elspot_average')|float - 0.44))|round(2) }}
+      aggregated_savings:
+        friendly_name: "Total saved"
+        unit_of_measurement: "kr"
+        value_template: >-
+          {{ states('input_number.sparsnas_save_aggregated')|float}}
